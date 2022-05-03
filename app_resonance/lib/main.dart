@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Rupay app',
       theme: ThemeData(
         fontFamily: "Roboto",
         scaffoldBackgroundColor: kBackgroundColor, //Color del Scaffold
