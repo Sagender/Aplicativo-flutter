@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, duplicate_ignore
 
 import 'package:flutter/material.dart';
 
@@ -53,6 +53,35 @@ class HomeScreen extends StatelessWidget {
                       icon: Icon(Icons.search),
                       border: InputBorder.none,
                     )),
+                  ),
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      childAspectRatio: .85, // Mejora el tamaño del box
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(13),
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Spacer(),
+                              Image.asset("assets/image/pilates.png"),
+                              Text(
+                                "Recomendados",
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.copyWith(fontSize: 15),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
