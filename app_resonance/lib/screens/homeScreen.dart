@@ -14,10 +14,64 @@ class HomeScreen extends StatelessWidget {
         height: 70,
         color: Color.fromARGB(255, 248, 240, 240),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            BottomNavItem(),
-            BottomNavItem(),
-            BottomNavItem(),
+            GestureDetector(
+              onTap: () {},
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/icons/Inicio.png",
+                    height: 15,
+                    width: 15,
+                  ),
+                  Text("Home", style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/icons/destino.png",
+                    height: 15,
+                    width: 15,
+                  ),
+                  Text("Destino", style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/icons/galeria.png",
+                    height: 15,
+                    width: 15,
+                  ),
+                  Text("Galeria", style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/icons/recomendado.png",
+                    height: 15,
+                    width: 15,
+                  ),
+                  Text("Recomendados", style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -50,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Ripuy: Bienvenido usuario ",
+                    "Ripuy: Bienvenido user ",
                     style: Theme.of(context)
                         .textTheme
                         .headline4
@@ -81,11 +135,10 @@ class HomeScreen extends StatelessWidget {
                           image: "assets/image/CentroLima.jpg",
                           press: () {},
                         ),
-                        /*cardContainer(
+                        cardContainer(
                             title: "Chorrillos",
                             image: "assets/image/Lima1.jpg",
                             press: () {}),
-                       
                         cardContainer(
                           title: "Como te dejaron",
                           image: "assets/image/pilates.png",
@@ -95,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                           title: "Ella no te ama",
                           image: "assets/image/pilates.png",
                           press: () {},
-                        )*/
+                        )
                       ],
                     ),
                   ),
@@ -103,19 +156,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           )
-        ],
-      ),
-    );
-  }
-
-  GestureDetector BottomNavItem() {
-    return GestureDetector(
-      onTap: () {},
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Icon(Icons.home),
-          Text("Home"),
         ],
       ),
     );

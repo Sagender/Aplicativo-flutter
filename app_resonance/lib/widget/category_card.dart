@@ -36,7 +36,9 @@ class cardContainer extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {}, //parece un error ¿No sé cuál?
+            onTap: () {
+              press;
+            }, //parece un error ¿No sé cuál?//se solucionó
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
