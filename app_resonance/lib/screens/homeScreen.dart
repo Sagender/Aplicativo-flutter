@@ -36,9 +36,9 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Image.asset(
-                    "assets/icons/destino.png",
-                    height: 15,
-                    width: 15,
+                    "assets/icons/autobus.png",
+                    height: 20,
+                    width: 20,
                   ),
                   Text("Destino", style: TextStyle(color: Colors.black)),
                 ],
@@ -121,9 +121,9 @@ class HomeScreen extends StatelessWidget {
                       icon: Icon(Icons.search),
                       border: InputBorder.none,
                     )),
-                  ),
+                  ), //Creando entorno
                   ListHorizontal(
-                      'Ciudad de Lima',
+                      'Lima City',
                       Row(
                         children: [
                           Image.network(
