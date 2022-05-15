@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -90,7 +91,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Align(
+                  /*Align(
                     alignment: Alignment.topRight,
                     child: Container(
                       alignment: Alignment.center,
@@ -102,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: Icon(Icons.menu),
                     ),
-                  ),
+                  ),*/
                   Text(
                     "Ripuy: Bienvenido user ",
                     style: Theme.of(context)
