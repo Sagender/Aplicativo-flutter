@@ -46,19 +46,22 @@ class _MainPageState extends State<MainPage> {
           // Permiten fijar un color para el item seleccionado o viceversa
           selectedItemColor: Colors.black54,
           unselectedItemColor: Colors.grey.withOpacity(0.5),
-          showSelectedLabels: false,
+          showSelectedLabels: true,
           showUnselectedLabels: false,
           elevation: 0,
           //Llamado a los items
           items: [
             BottomNavigationBarItem(
               label: "Home",
-              icon: Icon(Icons.apps),
+              icon: Icon(Icons.home),
             ),
-            BottomNavigationBarItem(label: "Destino", icon: Icon(Icons.route)),
+            BottomNavigationBarItem(
+              label: "Destino",
+              icon: Icon(Icons.route),
+            ),
             BottomNavigationBarItem(
               label: "Galería",
-              icon: Icon(Icons.camera_rear),
+              icon: Icon(Icons.apps),
             ),
             BottomNavigationBarItem(
               label: "Recomendados",

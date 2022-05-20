@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore, avoid_unnecessary_containers, non_constant_identifier_names, sized_box_for_whitespace, must_be_immutable
+// ignore_for_file: file_names, prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore, avoid_unnecessary_containers, non_constant_identifier_names, sized_box_for_whitespace, must_be_immutable, dead_code
 
 import 'package:appcarrusel/screens/widgets/constants.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +12,13 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           CategoryListview(),
+          SearchContainer(),
+          //Card de la visa Home
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 0,
+            ), //
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -22,7 +27,7 @@ class HomePage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                   margin: EdgeInsets.only(
-                    top: 15,
+                    top: 2,
                     left: 40,
                   ),
                   child: Column(
@@ -74,26 +79,49 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Container SearchContainer() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(.3),
-            spreadRadius: 1,
-            blurRadius: 7,
-            offset: Offset(0, 3),
-          )
-        ],
-      ),
-      child: TextField(
-          decoration: InputDecoration(
-              prefixIcon: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(Icons.search),
+// Buscador
+  Column SearchContainer() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(
+            left: 20,
+            right: 16,
+            top: 1,
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: "Search",
+              hintStyle: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[400],
               ),
-              border: InputBorder.none)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 2),
+              suffixIcon: Padding(
+                padding: EdgeInsets.only(
+                  right: 24,
+                  left: 8,
+                ),
+                child: Icon(
+                  Icons.search,
+                  color: Colors.grey[400],
+                  size: 26,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
