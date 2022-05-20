@@ -48,8 +48,12 @@ class _SplashScreenState extends State<SplashScreen> {
             end: Alignment.bottomRight,
             // ignore: prefer_const_literals_to_create_immutables
             colors: [
+              Colors.white,
+              Colors
+                  .white60, /*
               Color.fromARGB(255, 112, 238, 105),
               Color.fromARGB(255, 39, 184, 31),
+            */
             ],
           ),
         ),
@@ -61,15 +65,16 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Image.asset(
                   "assets/img/ripuyLogo.png",
-                  height: 300.0,
-                  width: 300.0,
+                  height: 150.0,
+                  width: 150.0,
                 ),
                 Text(
                   "Ripuy App",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
+                    color: Colors.black26,
+                    fontSize: 25.0,
+                    fontFamily: "Roboto-Thin",
                   ),
                 ),
                 CircularProgressIndicator(),

@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 
 import '../destinos.dart';
-import '../galeria.dart';
+import '../details/doIt.dart';
+//import '../galeria.dart';
 import '../home.dart';
 import '../recomendados.dart';
 
@@ -15,14 +16,15 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
+//Nagecación entre vistas
 class _MainPageState extends State<MainPage> {
   List pages = [
-    HomePage(),
-    Destinos(),
-    Galeria(),
+    HomePage(), // Listado de 0-3
+    DestinosPage(),
+    DoIt(),
     Recomendados(),
   ];
-  int currentIndex = 0;
+  int currentIndex = 0; // La Primera vista es Home
   void onTap(int index) {
     setState(() {
       currentIndex = index;
