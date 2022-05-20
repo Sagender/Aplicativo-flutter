@@ -10,8 +10,14 @@ class Galeria extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Lugares a visitar en Lima'),
-          backgroundColor: Colors.grey,
+          title: Text(
+            'Lugares a visitar en Lima',
+            style: TextStyle(
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+                fontSize: 20.00),
+          ),
+          backgroundColor: Colors.white,
         ),
         body: ListView(children: [
           GestureDetector(

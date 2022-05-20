@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(), // Listado de 0-3
     DestinosPage(),
     Galeria(),
-    Recomendados(),
+    RecomendadosPage(),
   ];
   int currentIndex = 0; // La Primera vista es Home
   void onTap(int index) {

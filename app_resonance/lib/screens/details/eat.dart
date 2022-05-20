@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, file_names, sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, duplicate_ignore
+
 import 'package:flutter/material.dart';
 
-class Doit extends StatelessWidget {
-  const Doit({Key? key}) : super(key: key);
+class EatIt extends StatelessWidget {
+  const EatIt({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class Doit extends StatelessWidget {
           child: Stack(
             children: [
               Image.asset(
-                "assets/img/Lima13.jpg",
+                "assets/img/comida1.jpg",
                 height: 400,
                 width: 500,
                 fit: BoxFit.cover,
@@ -28,6 +29,7 @@ class Doit extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: Container(
+                      // ignore: prefer_const_constructors
                       padding: EdgeInsets.all(4),
                       decoration: BoxDecoration(
                           color: Colors.white,
