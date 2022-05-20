@@ -7,8 +7,20 @@ class Galeria extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Galería"),
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 400,
+            child: Stack(
+              Image.asset("assets/img/Lima12.jpg",
+              height: 400,
+              fit: Boxfit.cover,)
+            )
+          ),
+        ],
+      ),
     );
   }
 }

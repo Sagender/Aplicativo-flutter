@@ -1,9 +1,10 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore
 
+import 'package:appcarrusel/screens/galeria.dart';
 import 'package:flutter/material.dart';
 
 import '../destinos.dart';
-import '../details/doIt.dart';
+
 //import '../galeria.dart';
 import '../home.dart';
 import '../recomendados.dart';
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   List pages = [
     HomePage(), // Listado de 0-3
     DestinosPage(),
-    DoIt(),
+    Galeria(),
     Recomendados(),
   ];
   int currentIndex = 0; // La Primera vista es Home

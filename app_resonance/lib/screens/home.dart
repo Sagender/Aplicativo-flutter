@@ -10,70 +10,75 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: appBar(),
       body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
           CategoryListview(),
           SearchContainer(),
           //Card de la visa Home
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 30,
-              vertical: 0,
-            ), //
+          cardContainer()
+        ],
+      ),
+    );
+  }
+
+  Container cardContainer() {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 30,
+        vertical: 0,
+      ), //
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Card(
+            clipBehavior: Clip.antiAlias,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            margin: EdgeInsets.only(
+              top: 2,
+              left: 40,
+            ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Card(
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  margin: EdgeInsets.only(
-                    top: 2,
-                    left: 40,
-                  ),
-                  child: Column(
-                    children: [
-                      FadeInImage(
-                        image: AssetImage("assets/img/Lima10.jpg"),
-                        width: 280,
-                        fit: BoxFit.cover,
-                        placeholder: AssetImage(
-                            "assets/img/Lima10.jpg"), // imagen de carga
-                      ),
-                    ],
-                  ),
+                FadeInImage(
+                  image: AssetImage("assets/img/Lima10.jpg"),
+                  width: 280,
+                  fit: BoxFit.cover,
+                  placeholder:
+                      AssetImage("assets/img/Lima10.jpg"), // imagen de carga
                 ),
-                Text(
-                  "Lima",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "Lorem Ipsum is simply dummy text of the printing"
-                  " and typesetting industry. Lorem Ipsum has been"
-                  " the industry's standard dummy text ever since "
-                  "the 1500s, when an unknown printer took a galley of "
-                  "type and scrambled it to make a type specimen book."
-                  " It has survived not only five centuries, but also"
-                  " the leap into electronic typesetting, remaining"
-                  "essentially unchanged. ",
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(
-                    fontSize: 14,
-                    height: 1.5,
-                  ),
-                ),
-                /*Text(
-                  'Read more',
-                  style: TextStyle(
-                      color: mPrimaryColor,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold),
-                )*/
               ],
             ),
-          )
+          ),
+          Text(
+            "Lima",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            "Lorem Ipsum is simply dummy text of the printing"
+            " and typesetting industry. Lorem Ipsum has been"
+            " the industry's standard dummy text ever since "
+            "the 1500s, when an unknown printer took a galley of "
+            "type and scrambled it to make a type specimen book."
+            " It has survived not only five centuries, but also"
+            " the leap into electronic typesetting, remaining"
+            "essentially unchanged. ",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.5,
+            ),
+          ),
+          /*Text(
+                'Read more',
+                style: TextStyle(
+                    color: mPrimaryColor,
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold),
+              )*/
         ],
       ),
     );
@@ -115,7 +120,7 @@ class HomePage extends StatelessWidget {
                 child: Icon(
                   Icons.search,
                   color: Colors.grey[400],
-                  size: 26,
+                  size: 20,
                 ),
               ),
             ),
@@ -178,7 +183,7 @@ class _CategoryListviewState extends State<CategoryListview> {
                 },
                 child: Container(
                   //padding: EdgeInsets.symmetric(horizontal: 1.0, vertical: 1.0),
-                  margin: EdgeInsets.only(left: 36),
+                  margin: EdgeInsets.only(left: 55),
                   child: Text(
                     categoryList[index],
                     style: TextStyle(
