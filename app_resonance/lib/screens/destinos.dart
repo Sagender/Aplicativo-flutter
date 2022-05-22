@@ -27,7 +27,7 @@ class DestinosPage extends StatelessWidget {
               ),
               background: Container(
                 child: Image.asset(
-                  "assets/img/Lima10.jpg",
+                  "assets/images/Lima10.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
