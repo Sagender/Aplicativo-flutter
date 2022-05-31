@@ -15,7 +15,7 @@ class Doit extends StatelessWidget {
           child: Stack(
             children: [
               Image.asset(
-                "assets/img/Lima13.jpg",
+                "assets/images/Lima13.jpg",
                 height: 400,
                 width: 500,
                 fit: BoxFit.cover,

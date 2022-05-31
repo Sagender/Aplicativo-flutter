@@ -16,7 +16,7 @@ class EatIt extends StatelessWidget {
           child: Stack(
             children: [
               Image.asset(
-                "assets/img/comida1.jpg",
+                "assets/images/comida1.jpg",
                 height: 400,
                 width: 500,
                 fit: BoxFit.cover,

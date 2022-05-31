@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../models/recommend_model.dart';
+import 'details/doIt.dart';
+import 'details/eat.dart';
 import 'widgets/custom_tab.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,14 +39,30 @@ class HomePage extends StatelessWidget {
                       indicator: RoundedRectangleTabIndicator(
                           color: Color(0xFF000000), weight: 2.4, width: 14.4),
                       tabs: [
-                        Tab(
-                          child: Container(
-                            child: Text("Cosas que hacer"),
+                        Container(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) => Doit()));
+                            },
+                            child: Tab(
+                              child: Container(
+                                child: Text("Cosas que hacer"),
+                              ),
+                            ),
                           ),
                         ),
-                        Tab(
-                          child: Container(
-                            child: Text("Donde Comer"),
+                        Container(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) => EatIt()));
+                            },
+                            child: Tab(
+                              child: Container(
+                                child: Text("Donde Comer"),
+                              ),
+                            ),
                           ),
                         )
                       ]),
@@ -107,7 +125,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                   Text(
                                     recommendations[index].name.toString(),
-                                    style: GoogleFonts.lato(
+                                    style: GoogleFonts.macondo(
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white,
                                       fontSize: 16.8,
@@ -239,6 +257,8 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+class Macondo {}
 /*
   Container cardContainer() {
     return Container(
