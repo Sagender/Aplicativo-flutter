@@ -21,10 +21,10 @@ class Background extends StatelessWidget {
                 1
               ],
                   colors: [
-                Color.fromARGB(255, 30, 90, 32),
-                Color.fromARGB(255, 32, 96, 149),
-                Color.fromARGB(255, 215, 141, 28),
-                Color.fromARGB(255, 219, 93, 135)
+                Colors.white70, //fromARGB(255, 30, 90, 32),
+                Colors.white70, //fromARGB(255, 32, 96, 149),
+                Colors.white70, //fromARGB(255, 215, 141, 28),
+                Colors.white70, //fromARGB(255, 219, 93, 135)
               ])),
         ),
       ],

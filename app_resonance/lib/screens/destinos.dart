@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:appcarrusel/screens/widgets/background_destino.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DestinoScreen extends StatelessWidget {
   const DestinoScreen({Key? key}) : super(key: key);
@@ -554,16 +555,16 @@ class _TableTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textStyle = TextStyle(
-        fontSize: 30, fontWeight: FontWeight.bold, color: Color(0xFF101010));
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(height: 30),
         Text(
-          'Destinos turisticos de Lima',
+          'Elige tu destino',
           textAlign: TextAlign.center,
-          style: textStyle,
+          style: GoogleFonts.pacifico(
+            fontSize: 45,
+          ),
         ),
       ]),
     );
