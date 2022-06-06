@@ -33,6 +33,8 @@ class DestinosPage extends StatelessWidget {
               ),
             ),
           ),
+          //SliverList(delegate: SliverChildListDelegate(Column(children: [],)),)Sirveparaagregar
+
           SliverFillRemaining(
             child: Center(child: Text("Ripuy")),
           ),
