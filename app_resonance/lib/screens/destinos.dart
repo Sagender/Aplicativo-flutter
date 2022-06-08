@@ -3,8 +3,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:appcarrusel/screens/widgets/background_destino.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
+import 'details/eat.dart';
 
 class DestinoScreen extends StatelessWidget {
   const DestinoScreen({Key? key}) : super(key: key);
@@ -12,8 +14,44 @@ class DestinoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 10,
+            ),
+            child: Text(
+              "Elige tu destino",
+              style: GoogleFonts.indieFlower(
+                color: Colors.black87,
+                fontSize: 25,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+          ),
+          backgroundColor: Colors.white54,
+          elevation: 0,
+          actions: [
+            UnconstrainedBox(
+                child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.only(right: 12),
+              child: Container(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => EatIt()));
+                  },
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+            ))
+          ]),
       body: Stack(
-        children: [Background(), _Body()],
+        children: [/*Background(),*/ _Body()],
       ),
     );
   }
@@ -28,7 +66,7 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [_TableTitle(), _CustomTable()],
+        children: [_CustomTable()],
       ),
     );
   }
@@ -47,41 +85,73 @@ class _CustomTable extends StatelessWidget {
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, 'detallegradiente'),
             child: Hero(
-              tag: 'aries',
-              child: _CustomCard1(
-                signo: 'Parque de las Aguas',
+              tag: 'ventana',
+              child: _CustomCard(
+                title: 'Parque de las Aguas',
+                image:
+                    "https://elcomercio.pe/resizer/U1kW-7m-EKja9pw3ZFtNpZ89InM=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/II7LIHJYTVB5VHYABREBVGSPEI.jpg",
               ),
             ),
           ),
-          _CustomCard2(signo: 'Plaza de Armas'),
+          _CustomCard(
+            title: 'Plaza de Armas',
+            image:
+                "https://dc3.com.pe/wp-content/uploads/2021/01/DC3-Plaza-mayor-de-Lima-01.jpg",
+          ),
         ]),
         TableRow(children: [
-          _CustomCard3(signo: 'Caral'),
-          _CustomCard4(signo: 'Catarata de la Novia'),
+          _CustomCard(
+              title: 'Caral',
+              image: "https://static.dw.com/image/45113007_401.jpg"),
+          _CustomCard(
+            title: 'Catarata de la Novia',
+            image:
+                "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg",
+          ),
         ]),
         TableRow(children: [
-          _CustomCard5(signo: 'Castillo de Chancay'),
-          _CustomCard6(signo: 'Churin'),
+          _CustomCard(
+              title: 'Castillo de Chancay',
+              image:
+                  "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg"),
+          _CustomCard(
+              title: 'Churin',
+              image:
+                  "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg"),
         ]),
         TableRow(children: [
-          _CustomCard7(signo: 'Lomas de Lachay'),
-          _CustomCard8(signo: 'El Mirador'),
+          _CustomCard(
+              title: 'Lomas de Lachay',
+              image:
+                  "https://www.pasosdeviajero.com/lugares-turisticos/lomas-de-lachay/images/fulls/sendero-lomas-de-lachay.jpg"),
+          _CustomCard(
+            title: 'El Mirador',
+            image:
+                "https://barranca.pe/wp-content/uploads/2019/03/Balnearios-de-Barrancajpg.jpg",
+          ),
         ]),
         TableRow(children: [
-          _CustomCard9(signo: 'Parque'),
-          _CustomCard10(signo: 'Santa Rosa DE Quives'),
+          _CustomCard(
+            title: 'Parque',
+            image:
+                "https://larepublica.pe/resizer/-FT6jCYdIuo9ryJ_mQIAR7D7v9M=/538x0/top/larepublica.pe/resizer/xEzdxHjBH6WkFQrqE22Z97n4lis=/538x0/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/GHUFFME5WNDB3KWB2H2L5YEBUU.png",
+          ),
+          _CustomCard(
+            title: 'Santa Rosa de Quives',
+            image:
+                "https://e.rpp-noticias.io/normal/2017/08/30/090109_472680.jpg",
+          ),
         ])
       ],
     );
   }
 }
 
-class _CustomCard1 extends StatelessWidget {
-  final String signo;
-  const _CustomCard1({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
+class _CustomCard extends StatelessWidget {
+  final String title;
+  final String image;
+  const _CustomCard({Key? key, required this.title, required this.image})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -95,478 +165,31 @@ class _CustomCard1 extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
+                borderRadius: BorderRadius.circular(20), color: Colors.white70),
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               CircleAvatar(
                 //esto es para agrandar el radius
-                radius: 50,
-                backgroundImage: NetworkImage(
-                    'https://elcomercio.pe/resizer/U1kW-7m-EKja9pw3ZFtNpZ89InM=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/II7LIHJYTVB5VHYABREBVGSPEI.jpg'),
+                radius: 55,
+                backgroundImage: NetworkImage(image),
                 child: ClipOval(),
               ),
               SizedBox(
                 height: 20,
               ),
               Text(
-                signo,
+                title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
+                style: GoogleFonts.indieFlower(
+                  fontSize: 16.5,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.normal,
                 ),
               )
             ]),
           ),
         ),
       ),
-    );
-  }
-}
-
-class _CustomCard2 extends StatelessWidget {
-  final String signo;
-  const _CustomCard2({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://dc3.com.pe/wp-content/uploads/2021/01/DC3-Plaza-mayor-de-Lima-01.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard3 extends StatelessWidget {
-  final String signo;
-  const _CustomCard3({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://static.dw.com/image/45113007_401.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard4 extends StatelessWidget {
-  final String signo;
-  const _CustomCard4({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://turismoalperu.com/wp-content/uploads/2020/09/cascada-la-novia-en-cajamarca.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard5 extends StatelessWidget {
-  final String signo;
-  const _CustomCard5({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://turismoi.pe/uploads/photo/version2/photo_file/49350/optimized_2431-1.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard6 extends StatelessWidget {
-  final String signo;
-  const _CustomCard6({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard7 extends StatelessWidget {
-  final String signo;
-  const _CustomCard7({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://www.pasosdeviajero.com/lugares-turisticos/lomas-de-lachay/images/fulls/sendero-lomas-de-lachay.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard8 extends StatelessWidget {
-  final String signo;
-  const _CustomCard8({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://barranca.pe/wp-content/uploads/2019/03/Balnearios-de-Barrancajpg.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard9 extends StatelessWidget {
-  final String signo;
-  const _CustomCard9({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://larepublica.pe/resizer/-FT6jCYdIuo9ryJ_mQIAR7D7v9M=/538x0/top/larepublica.pe/resizer/xEzdxHjBH6WkFQrqE22Z97n4lis=/538x0/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/GHUFFME5WNDB3KWB2H2L5YEBUU.png'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CustomCard10 extends StatelessWidget {
-  final String signo;
-  const _CustomCard10({
-    Key? key,
-    required this.signo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green,
-      height: 170,
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(50, 50, 50, 0.5)),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              CircleAvatar(
-                //esto es para agrandar el radius
-                radius: 50,
-
-                backgroundImage: NetworkImage(
-                    'https://e.rpp-noticias.io/normal/2017/08/30/090109_472680.jpg'),
-                child: ClipOval(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                signo,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _TableTitle extends StatelessWidget {
-  const _TableTitle({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        SizedBox(height: 30),
-        Text(
-          'Elige tu destino',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.pacifico(
-            fontSize: 45,
-          ),
-        ),
-      ]),
     );
   }
 }

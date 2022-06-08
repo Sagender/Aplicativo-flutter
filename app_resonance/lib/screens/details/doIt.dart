@@ -27,7 +27,7 @@ class Doit extends StatelessWidget {
                     fontSize: 25.00),
               ),
               background: Image.asset(
-                "assets/images/Lima13.jpg",
+                "assets/images/playa.jpg",
                 fit: BoxFit.cover,
               ),
             ),
