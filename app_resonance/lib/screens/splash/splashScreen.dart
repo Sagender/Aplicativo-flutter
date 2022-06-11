@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:appcarrusel/screens/loginScreen.dart';
 import "package:flutter/material.dart";
 
 import '../widgets/bottomNavigation.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 4),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainPage())));
+            context, MaterialPageRoute(builder: (context) => LoginPage())));
     /*void initSate() {
     var d = Duration(seconds: 1);
     Future.delayed(

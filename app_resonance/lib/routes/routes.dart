@@ -2,6 +2,7 @@
 
 import 'package:appcarrusel/models/item_menu_home.dart';
 import 'package:appcarrusel/screens/destinos.dart';
+import 'package:appcarrusel/screens/loginScreen.dart';
 import 'package:appcarrusel/screens/widgets/detalle_destino.dart';
 import 'package:appcarrusel/screens/splash/splashScreen.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,11 @@ import 'package:flutter/material.dart';
 class Routes {
   static const rutaInicial = 'Splash';
   static final menuItem = <MenuItem>[
+    MenuItem(
+        ruta: 'Login',
+        icono: Icons.check,
+        nombre: 'Login',
+        screen: LoginPage()),
     MenuItem(
         ruta: 'Splash',
         icono: Icons.check,

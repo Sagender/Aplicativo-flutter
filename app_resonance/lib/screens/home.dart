@@ -22,6 +22,15 @@ class HomePage extends StatelessWidget {
           child: ListView(children: <Widget>[
             //Método para llamara a la búsqueda
             SearchContainer(),
+            Padding(
+                padding: EdgeInsets.only(top: 20, left: 43.0),
+                child: Text(
+                  "Descubre con\n    Ripuy", //
+                  style: GoogleFonts.indieFlower(
+                      color: Colors.black,
+                      fontSize: 45.6,
+                      fontWeight: FontWeight.w700),
+                )),
             Container(
                 height: 30,
                 margin: EdgeInsets.only(left: 64.4, top: 8.8),
@@ -67,16 +76,9 @@ class HomePage extends StatelessWidget {
                         )
                       ]),
                 )),
+            SizedBox(height: 15),
             //Nombre de la página
-            Padding(
-                padding: EdgeInsets.only(top: 18, left: 30.0),
-                child: Text(
-                  "Descubre con Ripuy", //
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.6,
-                      fontWeight: FontWeight.w700),
-                )),
+
             //visor de imágenes
             Container(
               height: 218.4,
@@ -142,6 +144,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 25),
             Container(
               padding: EdgeInsets.symmetric(
                 horizontal: 30,
@@ -159,7 +162,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "No malograr atte. Daniel."
+                      "No ."
                       " and typesetting industry. Lorem Ipsum has been"
                       " the industry's standard dummy text ever since "
                       "the 1500s, when an unknown printer took a galley of "
