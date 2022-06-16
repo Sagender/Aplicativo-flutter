@@ -40,7 +40,7 @@ class DestinoScreen extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => EatIt()));
+                        context, MaterialPageRoute(builder: (_) => Eatit()));
                   },
                   child: Icon(
                     Icons.add,
