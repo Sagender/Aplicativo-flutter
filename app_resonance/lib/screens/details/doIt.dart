@@ -61,36 +61,36 @@ class _ListViewPageState extends State<ListViewPage> {
   // Title List Here
   var titleList = [
     //Rótulos
-    "Montañismo",
-    "Visitas Guiadas",
-    "Tour",
-    "Salidas",
-    "Camping",
-    "Museos",
-    "Parques"
+    "Circuito de Agua",
+    "Plaza de Armas",
+    "Arcomar",
+    "Lunahuana",
+    "Canta",
+    "Huaral",
+    "Huancaya"
   ];
 
   // Description List Here
   var descList = [
     //Textos o comentarios
-    "Push yourself, because no one else is going to do it for you.",
-    "Your limitation—it's only your imagination.",
-    "Hard Work changes the life.",
-    "Sometimes it's the smallest decisions that can change your life forever.",
-    "Confidence is the most beautiful thing you can possess",
-    "A big business starts small.",
-    "Talent wins games, but teamwork and intelligence win championships."
+    "Horario. Lunes a Domingo. 02:00 pm a 10:00 pm. Espectáculo Multimedia. 06:50 pm, 07:30 pm, 08:10 pm, 08:50 pm.",
+    "El acceso es libre, por lo cual es un lugar turistico por la historia que tiene.",
+    "El acceso es gratutio. La opcion mas recomendada para los turistas es haciendo uso de un taxi privado.",
+    "Su distancia es de 191 km y el viaje es de aproximadamente unas 2h 41min para conducir desde lima.",
+    "La distancia es de 105 km y el viaje es de aproximadamente 1h 45 min para conducir desde lima.",
+    "Tiene una distancia de 78 km y el viaje dura aproximadamente 1h 7min para conducir desde lima.",
+    "El viaje es de 6h a 7h con un recorrido de 330km aproximadamente."
   ];
 
   ///Imágenes
   var imgList = [
-    "assets/images/Lima2.jpg",
-    "assets/images/lima3.jpg",
-    "assets/images/lima7.jpg",
-    "assets/images/Lima8.jpg",
-    "assets/images/Lima9.png",
-    "assets/images/Lima12.jpg",
-    "assets/images/Lima13.jpg"
+    "assets/images/foto1.jpg",
+    "assets/images/foto2.jpg",
+    "assets/images/foto3.jpg",
+    "assets/images/lunahuana.jpg",
+    "assets/images/Canta.jpg",
+    "assets/images/huaral.jpg",
+    "assets/images/huancaya.jpg"
   ];
 
   @override
