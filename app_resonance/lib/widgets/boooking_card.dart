@@ -1,7 +1,11 @@
+import 'package:appcarrusel/models/products.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BookingCard extends StatelessWidget {
+  final Product product;
+
+  const BookingCard({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +18,7 @@ class BookingCard extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Backgroungimage(),
+              Backgroungimage(product.picture),
               _ProductDetails(),
               Positioned(top: 0, child: _PriceTag())
             ],
@@ -93,6 +97,11 @@ class _ProductDetails extends StatelessWidget {
 }
 
 class Backgroungimage extends StatelessWidget {
+  final String? url;
+
+  const Backgroungimage(String? picture, {Key? key, this.url})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -102,7 +111,7 @@ class Backgroungimage extends StatelessWidget {
         height: 400,
         child: FadeInImage(
           placeholder: AssetImage("assets/images/jar-loading.gif"),
-          image: NetworkImage("https://via.placeholder.com/400x300/f6f6f6"),
+          image: NetworkImage(url!),
           fit: BoxFit.cover,
         ),
       ),

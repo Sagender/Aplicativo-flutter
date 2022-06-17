@@ -6,30 +6,31 @@ import 'dart:convert';
 
 class Product {
   Product({
-    this.available,
-    required this.name,
-    this.picture,
-    required this.price,
+    required this.avalible,
+    this.name,
+    required this.picture,
+    this.price,
   });
 
-  bool? available;
-  String name;
+  bool avalible;
+  String? name;
   String? picture;
-  double price;
+  String? price;
+  String? id;
 
   factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory Product.fromMap(Map<String, dynamic> json) => Product(
-        available: json["available"],
+        avalible: json["avalible"],
         name: json["name"],
         picture: json["picture"],
         price: json["price"],
       );
 
   Map<String, dynamic> toMap() => {
-        "available": available,
+        "avalible": avalible,
         "name": name,
         "picture": picture,
         "price": price,
