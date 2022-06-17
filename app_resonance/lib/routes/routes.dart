@@ -1,15 +1,23 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:appcarrusel/models/item_menu_home.dart';
+import 'package:appcarrusel/screens/BookingScreen.dart';
 import 'package:appcarrusel/screens/destinos.dart';
 import 'package:appcarrusel/screens/loginScreen.dart';
-import 'package:appcarrusel/screens/widgets/detalle_destino.dart';
-import 'package:appcarrusel/screens/splash/splashScreen.dart';
+
 import 'package:flutter/material.dart';
 
+import '../splash/splashScreen.dart';
+import '../widgets/detalle_destino.dart';
+
 class Routes {
-  static const rutaInicial = 'Splash';
+  static const rutaInicial = 'Reservas';
   static final menuItem = <MenuItem>[
+    MenuItem(
+        ruta: 'Reservas',
+        icono: Icons.check,
+        nombre: 'Reserva',
+        screen: BookingsScreen()),
     MenuItem(
         ruta: 'Login',
         icono: Icons.check,

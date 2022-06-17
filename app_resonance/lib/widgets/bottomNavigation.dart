@@ -3,11 +3,9 @@
 import 'package:appcarrusel/screens/galeria.dart';
 import 'package:flutter/material.dart';
 
-import '../destinos.dart';
-
-//import '../galeria.dart';
-import '../home.dart';
-import '../recomendados.dart';
+import '../screens/destinos.dart';
+import '../screens/home.dart';
+import '../screens/recomendados.dart';
 
 class MainPage extends StatefulWidget {
   // para implementar la navegación debe ser statefull

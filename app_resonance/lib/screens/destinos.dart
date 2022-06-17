@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-import 'details/eat.dart';
+import '../details/eat.dart';
 
 class DestinoScreen extends StatelessWidget {
   const DestinoScreen({Key? key}) : super(key: key);

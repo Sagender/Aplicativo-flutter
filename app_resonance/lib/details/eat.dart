@@ -1,5 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, duplicate_ignore
-
+// ignore_for_file: prefer_const_constructors, file_names, sized_box_for_whitespace
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -62,36 +61,36 @@ class _ListViewPageState extends State<ListViewPage> {
   // Title List Here
   var titleList = [
     //Rótulos
-    "Circuito de Agua",
-    "Plaza de Armas",
-    "Larcomar",
-    "Lunahuana",
-    "Canta",
-    "Huaral",
-    "Huancaya"
+    "Panchita",
+    "Matria Restaurante",
+    "Restaurant Huaca Pucllana",
+    "OSAKA ",
+    "Mayta",
+    "Astrid y Gastón",
+    "Nanka"
   ];
 
   // Description List Here
   var descList = [
     //Textos o comentarios
-    "Horario. Lunes a Domingo. 02:00 pm a 10:00 pm. Espectáculo Multimedia. 06:50 pm, 07:30 pm, 08:10 pm, 08:50 pm.",
-    "El acceso es libre, por lo cual es un lugar turistico por la historia que tiene.",
-    "El acceso es gratutio. La opcion mas recomendada para los turistas es haciendo uso de un taxi privado.",
-    "Su distancia es de 191 km y el viaje es de aproximadamente unas 2h 41min para conducir desde lima.",
-    "La distancia es de 105 km y el viaje es de aproximadamente 1h 45 min para conducir desde lima.",
-    "Tiene una distancia de 78 km y el viaje dura aproximadamente 1h 7min para conducir desde lima.",
-    "El viaje es de 6h a 7h con un recorrido de 330km aproximadamente."
+    "Panchita ofrece una variada carta que homenajea a la sazón criolla recordando los entrañables sabores y aromas de nuestra cocina.",
+    "Una cocina que cree en la estacionalidad de los insumos y la armonia de con el medio ambiente"
+        "Utilizamos como base los sabores del Perú, interpretando de acuerdo a las técnicas clásicas de cocina, así como los estilos contemporáneos y las exigencias de los paladares más exquisitos.",
+    "Ofrece una variada carta elaborada en base a la fusión de la gastronomía peruano-japonesa balanceando técnica e ingredientes.",
+    "Mayta, que significa Tierra Noble en el idioma aymara, es una expresión personal y contemporánea de la gastronomía y territorio peruano.",
+    "Hemos preparado una selección de los platos que fueron parte de la historia nuestro restaurante a lo largo de los últimos 26 años",
+    "Visión de cocina internacional, con insumos peruanos diversos, revalorando el gran sabor que aporta a la fusión."
   ];
 
   ///Imágenes
   var imgList = [
-    "assets/images/foto1.jpg",
-    "assets/images/foto2.jpg",
-    "assets/images/foto3.jpg",
-    "assets/images/lunahuana.jpg",
-    "assets/images/Canta.jpg",
-    "assets/images/huaral.jpg",
-    "assets/images/huancaya.jpg"
+    "assets/images/panchita.jpg",
+    "assets/images/matria.jpg",
+    "assets/images/huanca.jpg",
+    "assets/images/osaka.jpg",
+    "assets/images/mayta.jpg",
+    "assets/images/astrid.jpg",
+    "assets/images/nanka.jpg"
   ];
 
   @override

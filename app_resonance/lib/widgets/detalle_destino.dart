@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_const_constructors, duplicate_ignore
 
 import 'package:flutter/material.dart';
-import 'package:appcarrusel/screens/widgets/background_destino.dart';
+
+import 'background_destino.dart';
 
 class DetalleGradienteScreen extends StatelessWidget {
   const DetalleGradienteScreen({Key? key}) : super(key: key);

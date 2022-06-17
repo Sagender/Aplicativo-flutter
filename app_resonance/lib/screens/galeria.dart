@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:appcarrusel/screens/widgets/card_galeria.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/card_galeria.dart';
 
 class Galeria extends StatelessWidget {
   const Galeria({Key? key}) : super(key: key);

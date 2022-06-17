@@ -2,14 +2,14 @@
 
 import 'dart:ui';
 
-import 'package:appcarrusel/screens/details/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../details/NavBar.dart';
+import '../details/doIt.dart';
+import '../details/eat.dart';
 import '../models/recommend_model.dart';
-import 'details/doIt.dart';
-import 'details/eat.dart';
-import 'widgets/custom_tab.dart';
+import '../widgets/custom_tab.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
