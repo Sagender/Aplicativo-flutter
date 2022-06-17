@@ -74,8 +74,8 @@ class _ListViewPageState extends State<ListViewPage> {
   var descList = [
     //Textos o comentarios
     "Panchita ofrece una variada carta que homenajea a la sazón criolla recordando los entrañables sabores y aromas de nuestra cocina.",
-    "Una cocina que cree en la estacionalidad de los insumos y la armonia de con el medio ambiente"
-        "Utilizamos como base los sabores del Perú, interpretando de acuerdo a las técnicas clásicas de cocina, así como los estilos contemporáneos y las exigencias de los paladares más exquisitos.",
+    "Una cocina que cree en la estacionalidad de los insumos y la armonia de con el medio ambiente",
+    "Utilizamos como base los sabores del Perú, interpretando de acuerdo a las técnicas clásicas de cocina, así como los estilos contemporáneos y las exigencias de los paladares más exquisitos.",
     "Ofrece una variada carta elaborada en base a la fusión de la gastronomía peruano-japonesa balanceando técnica e ingredientes.",
     "Mayta, que significa Tierra Noble en el idioma aymara, es una expresión personal y contemporánea de la gastronomía y territorio peruano.",
     "Hemos preparado una selección de los platos que fueron parte de la historia nuestro restaurante a lo largo de los últimos 26 años",
@@ -98,16 +98,6 @@ class _ListViewPageState extends State<ListViewPage> {
     // MediaQuery to get Device Width
     double width = MediaQuery.of(context).size.width * 0.6;
     return Scaffold(
-      /*appBar: AppBar(
-        // App Bar
-        title: Text(
-          "ListView On-Click Event",
-          style: TextStyle(color: Colors.grey),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),*/
-      // Main List View With Builder
       body: ListView.builder(
         itemCount: imgList.length,
         itemBuilder: (context, index) {

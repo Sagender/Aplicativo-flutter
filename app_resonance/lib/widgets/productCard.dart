@@ -2,14 +2,14 @@ import 'package:appcarrusel/models/products.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BookingCard extends StatelessWidget {
+class ProductCard extends StatelessWidget {
   final Product product;
 
-  const BookingCard({Key? key, required this.product}) : super(key: key);
+  const ProductCard({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Container(
           margin: EdgeInsets.only(top: 30, bottom: 50),
           width: double.infinity,

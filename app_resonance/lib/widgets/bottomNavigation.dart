@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore
 
+import 'package:appcarrusel/screens/BookingScreen.dart';
 import 'package:appcarrusel/screens/galeria.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class _MainPageState extends State<MainPage> {
     DestinoScreen(),
     Galeria(),
     RecomendadosPage(),
+    BookingsScreen()
   ];
   int currentIndex = 0; // La Primera vista es Home
   void onTap(int index) {
@@ -65,6 +67,10 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
               label: "Recomendados",
               icon: Icon(Icons.read_more),
+            ),
+            BottomNavigationBarItem(
+              label: "Tus tickets",
+              icon: Icon(Icons.car_rental),
             ),
           ]), //Llamar al método
     );

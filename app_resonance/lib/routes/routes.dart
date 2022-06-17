@@ -11,7 +11,7 @@ import '../splash/splashScreen.dart';
 import '../widgets/detalle_destino.dart';
 
 class Routes {
-  static const rutaInicial = 'Reservas';
+  static const rutaInicial = 'Splash';
   static final menuItem = <MenuItem>[
     MenuItem(
         ruta: 'Reservas',

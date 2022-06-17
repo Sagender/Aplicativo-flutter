@@ -22,7 +22,9 @@ class ProductsService extends ChangeNotifier {
     final url = Uri.https(_baseUrl, "products.json");
     final resp = await http.get(url);
 
+    // ignore: unnecessary_question_mark
     final Map<String, dynamic> productsMap = json.decode(resp.body);
+
     productsMap.forEach((key, value) {
       final tempProduct = Product.fromMap(value);
       tempProduct.id = key;

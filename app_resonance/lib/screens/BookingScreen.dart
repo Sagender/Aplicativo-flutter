@@ -1,12 +1,13 @@
 import 'package:appcarrusel/screens/loadingScreen.dart';
 import 'package:appcarrusel/services.dart/products_service.dart';
-import 'package:appcarrusel/widgets/boooking_card.dart';
-import 'package:flutter/gestures.dart';
+import 'package:appcarrusel/widgets/productCard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class BookingsScreen extends StatelessWidget {
+  const BookingsScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final productService = Provider.of<ProductsService>(context);
@@ -25,10 +26,10 @@ class BookingsScreen extends StatelessWidget {
             itemCount: productService.products.length,
             itemBuilder: (BuildContext context, int index) => GestureDetector(
                   onTap: () => Navigator.pushNamed(context, "product"),
-                  child: BookingCard(product: productService.products[index]),
+                  child: ProductCard(product: productService.products[index]),
                 )),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           onPressed: () {},
         ));
   }
