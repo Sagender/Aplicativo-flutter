@@ -63,7 +63,7 @@ class _ListViewPageState extends State<ListViewPage> {
     //Rótulos
     "Circuito de Agua",
     "Plaza de Armas",
-    "Arcomar",
+    "Larcomar",
     "Lunahuana",
     "Canta",
     "Huaral",

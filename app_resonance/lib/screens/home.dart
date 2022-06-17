@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 
+import 'package:appcarrusel/screens/details/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _pageController = PageController(viewportFraction: 0.877);
     return Scaffold(
+      drawer: NavBarScreen(),
       appBar: appBar(),
       body: SafeArea(
         child: Container(
@@ -65,7 +67,7 @@ class HomePage extends StatelessWidget {
                           child: GestureDetector(
                             onTap: () {
                               Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) => EatIt()));
+                                  MaterialPageRoute(builder: (_) => Eatit()));
                             },
                             child: Tab(
                               child: Container(
@@ -188,15 +190,15 @@ class HomePage extends StatelessWidget {
 //Barra superior
   AppBar appBar() {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white10,
       elevation: 0,
-      leading: IconButton(
-        icon: Icon(
-          Icons.menu,
-          color: Colors.black87,
-        ),
-        onPressed: () {},
-      ),
+      /*leading: IconButton(
+          icon: Icon(
+            Icons.menu,
+            color: Colors.black87,
+          ),
+          onPressed: () {},
+        ) 
       actions: [
         UnconstrainedBox(
           child: Container(
@@ -210,7 +212,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         )
-      ],
+      ],*/
     );
   }
 
