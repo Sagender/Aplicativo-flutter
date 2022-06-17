@@ -192,27 +192,6 @@ class HomePage extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.white10,
       elevation: 0,
-      /*leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.black87,
-          ),
-          onPressed: () {},
-        ) 
-      actions: [
-        UnconstrainedBox(
-          child: Container(
-            padding: EdgeInsets.all(2),
-            margin: EdgeInsets.only(right: 12),
-            decoration: BoxDecoration(
-                color: Colors.white70, borderRadius: BorderRadius.circular(10)),
-            child: Image.asset(
-              "assets/images/ripuyLogo.png",
-              width: 32,
-            ),
-          ),
-        )
-      ],*/
     );
   }
 

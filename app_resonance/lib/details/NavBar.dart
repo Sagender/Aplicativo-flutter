@@ -1,3 +1,4 @@
+import 'package:appcarrusel/services.dart/collaborators.dart';
 import 'package:flutter/material.dart';
 
 class NavBarScreen extends StatelessWidget {
@@ -38,8 +39,11 @@ class NavBarScreen extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.mobile_friendly),
-              title: const Text("Amigos"),
-              onTap: () {},
+              title: const Text("Colaboradores"),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => ColaboratesScreen()));
+              },
             ),
             ListTile(
               leading: const Icon(Icons.share),
