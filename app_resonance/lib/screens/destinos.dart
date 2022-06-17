@@ -83,9 +83,9 @@ class _CustomTable extends StatelessWidget {
       children: [
         TableRow(children: [
           GestureDetector(
-            onTap: () => Navigator.pushNamed(context, 'detallegradiente'),
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
             child: Hero(
-              tag: 'ventana',
+              tag: '1',
               child: _CustomCard(
                 title: 'Parque de las Aguas',
                 image:
@@ -93,53 +93,107 @@ class _CustomTable extends StatelessWidget {
               ),
             ),
           ),
-          _CustomCard(
-            title: 'Plaza de Armas',
-            image:
-                "https://dc3.com.pe/wp-content/uploads/2021/01/DC3-Plaza-mayor-de-Lima-01.jpg",
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '2',
+              child: _CustomCard(
+                title: 'Plaza de Armas',
+                image:
+                    "https://dc3.com.pe/wp-content/uploads/2021/01/DC3-Plaza-mayor-de-Lima-01.jpg",
+              ),
+            ),
           ),
         ]),
         TableRow(children: [
-          _CustomCard(
-              title: 'Caral',
-              image: "https://static.dw.com/image/45113007_401.jpg"),
-          _CustomCard(
-            title: 'Catarata de la Novia',
-            image:
-                "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg",
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '3',
+              child: _CustomCard(
+                  title: 'Caral',
+                  image: "https://static.dw.com/image/45113007_401.jpg"),
+            ),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '4',
+              child: _CustomCard(
+                title: 'Catarata de la Novia',
+                image:
+                    "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg",
+              ),
+            ),
           ),
         ]),
         TableRow(children: [
-          _CustomCard(
-              title: 'Castillo de Chancay',
-              image:
-                  "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg"),
-          _CustomCard(
-              title: 'Churin',
-              image:
-                  "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg"),
-        ]),
-        TableRow(children: [
-          _CustomCard(
-              title: 'Lomas de Lachay',
-              image:
-                  "https://www.pasosdeviajero.com/lugares-turisticos/lomas-de-lachay/images/fulls/sendero-lomas-de-lachay.jpg"),
-          _CustomCard(
-            title: 'El Mirador',
-            image:
-                "https://barranca.pe/wp-content/uploads/2019/03/Balnearios-de-Barrancajpg.jpg",
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '5',
+              child: _CustomCard(
+                  title: 'Castillo de Chancay',
+                  image:
+                      "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg"),
+            ),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '6',
+              child: _CustomCard(
+                  title: 'Churin',
+                  image:
+                      "https://www.peruenargentina.com.ar/uploads/filemanager/Churin.jpg"),
+            ),
           ),
         ]),
         TableRow(children: [
-          _CustomCard(
-            title: 'Parque',
-            image:
-                "https://larepublica.pe/resizer/-FT6jCYdIuo9ryJ_mQIAR7D7v9M=/538x0/top/larepublica.pe/resizer/xEzdxHjBH6WkFQrqE22Z97n4lis=/538x0/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/GHUFFME5WNDB3KWB2H2L5YEBUU.png",
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '7',
+              child: _CustomCard(
+                  title: 'Lomas de Lachay',
+                  image:
+                      "https://www.pasosdeviajero.com/lugares-turisticos/lomas-de-lachay/images/fulls/sendero-lomas-de-lachay.jpg"),
+            ),
           ),
-          _CustomCard(
-            title: 'Santa Rosa de Quives',
-            image:
-                "https://e.rpp-noticias.io/normal/2017/08/30/090109_472680.jpg",
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '8',
+              child: _CustomCard(
+                title: 'El Mirador',
+                image:
+                    "https://barranca.pe/wp-content/uploads/2019/03/Balnearios-de-Barrancajpg.jpg",
+              ),
+            ),
+          ),
+        ]),
+        TableRow(children: [
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '9',
+              child: _CustomCard(
+                title: 'Parque',
+                image:
+                    "https://larepublica.pe/resizer/-FT6jCYdIuo9ryJ_mQIAR7D7v9M=/538x0/top/larepublica.pe/resizer/xEzdxHjBH6WkFQrqE22Z97n4lis=/538x0/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/GHUFFME5WNDB3KWB2H2L5YEBUU.png",
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, 'detalledestino'),
+            child: Hero(
+              tag: '10',
+              child: _CustomCard(
+                title: 'Santa Rosa de Quives',
+                image:
+                    "https://e.rpp-noticias.io/normal/2017/08/30/090109_472680.jpg",
+              ),
+            ),
           ),
         ])
       ],

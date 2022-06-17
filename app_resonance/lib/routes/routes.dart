@@ -41,9 +41,8 @@ class Routes {
     /*Debo retornar una función que construya el Widget */
     /**solo para el home, para que no salga en el main */
     rutas.addAll({'Splash': (BuildContext context) => SplashScreen()});
-    rutas.addAll({
-      'detallegradiente': (BuildContext context) => DetalleGradienteScreen()
-    });
+    rutas.addAll(
+        {'detalledestino': (BuildContext context) => DetalleDestinocreen()});
 
     for (final item in menuItem) {
       rutas.addAll({item.ruta: (BuildContext context) => item.screen});
