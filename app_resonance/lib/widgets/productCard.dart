@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductCard extends StatelessWidget {
-  final Product product;
-
-  const ProductCard({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +15,7 @@ class ProductCard extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Backgroungimage(product.picture),
+              Backgroungimage("assets/images/no-image.jpg"),
               _ProductDetails(),
               Positioned(top: 0, child: _PriceTag())
             ],
@@ -111,7 +108,7 @@ class Backgroungimage extends StatelessWidget {
         height: 400,
         child: FadeInImage(
           placeholder: AssetImage("assets/images/jar-loading.gif"),
-          image: NetworkImage(url!),
+          image: NetworkImage("https://via.placeholder.com/400x300.png"),
           fit: BoxFit.cover,
         ),
       ),

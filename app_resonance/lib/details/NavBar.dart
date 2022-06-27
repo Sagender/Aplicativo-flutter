@@ -41,8 +41,10 @@ class NavBarScreen extends StatelessWidget {
               leading: const Icon(Icons.mobile_friendly),
               title: const Text("Colaboradores"),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => ColaboratesScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const ColaboratesScreen()));
               },
             ),
             ListTile(

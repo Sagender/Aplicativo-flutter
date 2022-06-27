@@ -2,10 +2,10 @@
 
 import 'dart:async';
 
-import 'package:appcarrusel/screens/loginScreen.dart';
+import 'package:appcarrusel/screens/login_Screen.dart';
 import "package:flutter/material.dart";
 
-import '../widgets/bottomNavigation.dart';
+import '../screens/mainpage_avigation_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

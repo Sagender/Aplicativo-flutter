@@ -1,7 +1,8 @@
-import 'package:appcarrusel/models/colaboradores.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:http/http.dart' as http;
+
+import '../models/colaboradores.dart';
 
 Future<TestApi> getUsuarios() async {
   var url = Uri.https('reqres.in', '/api/users');
@@ -14,15 +15,17 @@ Future<TestApi> getUsuarios() async {
 }
 
 class ColaboratesScreen extends StatelessWidget {
+  const ColaboratesScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.white10,
             elevation: 0,
-            title: Text(
+            title: const Text(
               'Nuestros colaboradores',
-              style: GoogleFonts.indieFlower(
+              style: TextStyle(
                   color: Colors.black,
                   fontSize: 22.6,
                   fontWeight: FontWeight.w700),
@@ -51,8 +54,39 @@ class _ListaUusarios extends StatelessWidget {
       itemBuilder: (BuildContext context, int i) {
         final usuario = usuarios[i];
         return ListTile(
-          title: Text('${usuario.firstName} - ${usuario.email}'),
-          trailing: Image.network(usuario.avatar),
+          title: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${usuario.firstName}',
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 16.6,
+                      fontWeight: FontWeight.w700),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  '${usuario.email}',
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 8.6,
+                      fontWeight: FontWeight.w700),
+                ),
+                Divider()
+              ],
+            ),
+          ),
+          trailing: CircleAvatar(
+              child: ClipOval(
+            child: Image.network(
+              usuario.avatar,
+              width: 90,
+              height: 90,
+              fit: BoxFit.cover,
+            ),
+          )),
         );
       },
     );
