@@ -33,6 +33,7 @@ class HomeScreen extends StatelessWidget {
               )),
           SearchContainer(),
           Container(
+              color: Colors.white,
               height: 30,
               margin: EdgeInsets.only(left: 64.4, top: 8.8),
               child: DefaultTabController(
@@ -77,6 +78,8 @@ class HomeScreen extends StatelessWidget {
                     ]),
               )),
           SizedBox(height: 15),
+          PlaceSlider(),
+          SizedBox(height: 25),
           PlaceSlider(),
           SizedBox(height: 25),
 

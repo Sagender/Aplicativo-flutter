@@ -17,7 +17,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List pages = [
     HomeScreen(), // Listado de 0-3
-    DestinoScreen(),
+    BookingsScreen(),
     GalleryScreen(),
     RecomendadosPage(),
     BookingsScreen()

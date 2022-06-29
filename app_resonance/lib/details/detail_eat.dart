@@ -39,7 +39,7 @@ class Eatit extends StatelessWidget {
               //LLamado a la clase
               child: Container(
                   //height: 30,
-                  margin: EdgeInsets.only(top: 8.8),
+                  margin: EdgeInsets.only(top: 0),
                   child: ListViewPage()),
             ),
           ),
@@ -111,28 +111,27 @@ class _ListViewPageState extends State<ListViewPage> {
               children: <Widget>[
                 //Tamaño del card
                 Container(
-                  width: 110,
-                  height: 110,
+                  width: 120,
+                  height: 120,
                   child: Image.asset(
                     imgList[index],
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         titleList[index],
-                        style: GoogleFonts.indieFlower(
-                          fontSize: 25,
-                          color: Colors.black45,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black54,
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
                       ),
                       Container(
                         width: width,
@@ -170,8 +169,8 @@ showDialogFunc(context, img, title, desc) {
             ),
             //Diseño de la caja
             padding: EdgeInsets.all(15),
-            height: 420,
-            width: MediaQuery.of(context).size.width * 0.8,
+            height: 400,
+            width: MediaQuery.of(context).size.width * 0.9,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -179,15 +178,17 @@ showDialogFunc(context, img, title, desc) {
                   borderRadius: BorderRadius.circular(5),
                   child: Image.asset(
                     img,
-                    width: 200,
+                    width: 300,
                     height: 200,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.grey,
@@ -195,7 +196,7 @@ showDialogFunc(context, img, title, desc) {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Align(
                   alignment: Alignment.center,
@@ -206,6 +207,22 @@ showDialogFunc(context, img, title, desc) {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text(
+                          "Ver más",
+                          style: TextStyle(color: Colors.blue, fontSize: 15),
+                        )),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Retornar",
+                          style: TextStyle(color: Colors.red, fontSize: 15)),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

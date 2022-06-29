@@ -13,12 +13,12 @@ Future<Places> getUsuarios() async {
   return Places.fromJson(response.body);
 }
 
-class PlaceSlider extends StatefulWidget {
+class DestinoSlider extends StatefulWidget {
   @override
-  PlaceSliderState createState() => PlaceSliderState();
+  DestinoSliderState createState() => DestinoSliderState();
 }
 
-class PlaceSliderState extends State<PlaceSlider> {
+class DestinoSliderState extends State<DestinoSlider> {
   final ScrollController scrollController = ScrollController();
 
   @override
@@ -26,18 +26,11 @@ class PlaceSliderState extends State<PlaceSlider> {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        height: 500,
+        height: 430,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Text(
-                "Novedades",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
@@ -55,15 +48,15 @@ class CitySlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         width: 300,
-        height: 400,
+        height: 350,
         child: Column(
           children: [
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, "Details"),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(5),
                 child: const FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
                     image:
@@ -74,12 +67,6 @@ class CitySlider extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 5),
-            const Text(
-              "Lugares que visitar",
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-            ),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
@@ -92,7 +79,7 @@ class CitySlider extends StatelessWidget {
                     const Text(
                       "Barranco",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -100,9 +87,7 @@ class CitySlider extends StatelessWidget {
                       "No ."
                       " and typesetting industry. Lorem Ipsum has been"
                       " the industry's standard dummy text ever since "
-                      "the 1500s, when an unknown printer took a galley of "
-                      "type and scrambled it to make a type specimen book."
-                      " It has survived not only five centuries, but also",
+                      "the 1500s, when an unknown printer took a galley of ",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontSize: 14,

@@ -29,7 +29,7 @@ class CustomPlaceCard extends StatelessWidget {
                   placeholder: AssetImage("assets/images/no-image.jpg"),
                   image:
                       NetworkImage("https://via.placeholder.com/360x250.png"),
-                  width: 360,
+                  width: 380,
                   height: 250,
                   fit: BoxFit.cover),
             ),

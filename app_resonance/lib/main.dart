@@ -31,11 +31,6 @@ class MyApp extends StatelessWidget {
         "Alerta": (_) => const AlertScreen(),
         "Drawer": (_) => const DrawerScreen(),
       },
-      theme: ThemeData(
-        primaryIconTheme: IconThemeData(
-          color: Colors.black,
-        ),
-      ),
     );
   }
 }
