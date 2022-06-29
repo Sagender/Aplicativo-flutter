@@ -1,21 +1,23 @@
-import 'package:appcarrusel/models/products.dart';
+import 'package:appcarrusel/screens/alert_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductCard extends StatelessWidget {
+  const ProductCard({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Container(
-          margin: EdgeInsets.only(top: 30, bottom: 50),
+          margin: const EdgeInsets.only(top: 20, bottom: 10),
           width: double.infinity,
-          height: 400,
+          height: 300,
           decoration: _cardBorders(),
           child: Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Backgroungimage("assets/images/no-image.jpg"),
+              const Backgroungimage("assets/images/no-image.jpg"),
               _ProductDetails(),
               Positioned(top: 0, child: _PriceTag())
             ],
@@ -24,29 +26,32 @@ class ProductCard extends StatelessWidget {
   }
 
   BoxDecoration _cardBorders() => BoxDecoration(
-          color: Colors.white70,
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black12, offset: Offset(0, 7), blurRadius: 10)
-          ]);
+        color: Colors.white70,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black12, offset: Offset(0, 7), blurRadius: 10),
+        ],
+      );
 }
 
 class _PriceTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(
-        "S/120",
-        style: GoogleFonts.indieFlower(fontSize: 20, color: Colors.black87),
+      child: const Text(
+        "S/12",
+        style: TextStyle(fontSize: 20, color: Colors.black87),
       ),
       width: 100,
       height: 70,
       alignment: Alignment.center,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-            topRight: Radius.circular(25), bottomLeft: Radius.circular(25)),
+          topRight: Radius.circular(0),
+          bottomLeft: Radius.circular(0),
+        ),
       ),
     );
   }
@@ -67,7 +72,7 @@ class _ProductDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Barranco",
+                "La tarumba-Entrada Adulto",
                 style: GoogleFonts.indieFlower(
                     fontSize: 20,
                     color: Colors.black87,
@@ -87,10 +92,13 @@ class _ProductDetails extends StatelessWidget {
     );
   }
 
-  BoxDecoration _buildBoxDecoration() => BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(25), topRight: Radius.circular(25)));
+  BoxDecoration _buildBoxDecoration() => const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(25),
+          topRight: Radius.circular(0),
+        ),
+      );
 }
 
 class Backgroungimage extends StatelessWidget {
@@ -105,8 +113,8 @@ class Backgroungimage extends StatelessWidget {
       borderRadius: BorderRadius.circular(25),
       child: Container(
         width: double.infinity,
-        height: 400,
-        child: FadeInImage(
+        height: 300,
+        child: const FadeInImage(
           placeholder: AssetImage("assets/images/jar-loading.gif"),
           image: NetworkImage("https://via.placeholder.com/400x300.png"),
           fit: BoxFit.cover,

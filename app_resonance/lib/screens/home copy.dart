@@ -1,14 +1,14 @@
 // ignore_for_file: file_names, prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore, avoid_unnecessary_containers, non_constant_identifier_names, sized_box_for_whitespace, must_be_immutable, dead_code
 
 // import 'package:appcarrusel/widgets/place_slider.dart';
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// 
-// import '../details/detail_navBar.dart';
-// import '../details/detail_doIt.dart';
-// import '../details/detail_eat.dart';
-// 
-// import '../widgets/custom_tab.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../details/detail_navBar.dart';
+import '../details/detail_doIt.dart';
+import '../details/detail_eat.dart';
+
+import '../widgets/custom_tab.dart';
 // 
 // class HomePage extends StatelessWidget {
 //   const HomePage({Key? key}) : super(key: key);
@@ -78,7 +78,75 @@
 //                       ]),
 //                 )),
 //             SizedBox(height: 15),
-//             CitySlider(),
+//             CitySlider()
+//             //Nombre de la página
+// 
+//             //visor de imágenes
+//             /*Container(
+//               height: 218.4,
+//               margin: EdgeInsets.only(top: 16),
+//               child: PageView(
+//                 physics: BouncingScrollPhysics(),
+//                 controller: _pageController,
+//                 scrollDirection: Axis.horizontal,
+//                 children: List.generate(
+//                   recommendations.length,
+//                   (int index) => Container(
+//                     margin: EdgeInsets.only(right: 28.8),
+//                     width: 333.6,
+//                     height: 218.4,
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(9.6),
+//                       image: DecorationImage(
+//                         fit: BoxFit.cover,
+//                         image: NetworkImage(
+//                             recommendations[index].image.toString()),
+//                       ),
+//                     ),
+//                     child: Stack(children: <Widget>[
+//                       Positioned(
+//                         //Posición de Barranco,
+//                         bottom: 19.2,
+//                         left: 19.2,
+//                         child: ClipRRect(
+//                           borderRadius: BorderRadius.circular(4.8),
+//                           child: BackdropFilter(
+//                             filter:
+//                                 ImageFilter.blur(sigmaY: 19.2, sigmaX: 19.2),
+//                             child: Container(
+//                               height: 36,
+//                               padding:
+//                                   EdgeInsets.only(left: 17.72, right: 14.4),
+//                               alignment: Alignment.centerLeft,
+//                               child: Row(
+//                                 children: <Widget>[
+//                                   Image.asset(
+//                                     "assets/images/alfiler.png",
+//                                     width: 20.0,
+//                                   ),
+//                                   SizedBox(
+//                                     width: 9.52,
+//                                   ),
+//                                   Text(
+//                                     recommendations[index].name.toString(),
+//                                     style: GoogleFonts.macondo(
+//                                       fontWeight: FontWeight.w700,
+//                                       color: Colors.white,
+//                                       fontSize: 16.8,
+//                                     ),
+//                                   )
+//                                 ],
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+//                     ]),
+//                   ),
+//                 ),
+//               ),
+//             )*/
+//             ,
 //             SizedBox(height: 25),
 //             Container(
 //               padding: EdgeInsets.symmetric(
