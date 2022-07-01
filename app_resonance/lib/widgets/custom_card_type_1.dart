@@ -1,3 +1,4 @@
+import 'package:appcarrusel/screens/alert_scren.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardType1 extends StatelessWidget {
@@ -11,7 +12,7 @@ class CustomCardType1 extends StatelessWidget {
       child: Column(children: [
         const ListTile(
           leading: Icon(Icons.photo_album_outlined, color: Colors.black),
-          title: Text("Entraa - Categoría"),
+          title: Text("Entrada - Categoría"),
           subtitle: Text("Info\n"
               "El costo de la entrada es de S/12.00"),
         ),
@@ -20,19 +21,49 @@ class CustomCardType1 extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text("Cancel"),
+              Container(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => AlertScreen()));
+                  },
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.black87,
+                  ),
+                ),
               ),
-              TextButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, displayDialogAndorid(context)),
-                child: const Text("Ok"),
-              )
             ],
           ),
         )
       ]),
     );
+  }
+
+  void displayDialogAndorid(BuildContext context) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusDirectional.circular(20)),
+            elevation: 5,
+            title: const Text("Confirmar compra"),
+            content: Column(mainAxisSize: MainAxisSize.min, children: const [
+              Text("¿Deseas realizar tu compra?"),
+              SizedBox(height: 10),
+            ]),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Cancelar")),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Ok", style: TextStyle(color: Colors.blue)),
+              )
+            ],
+          );
+        });
   }
 }

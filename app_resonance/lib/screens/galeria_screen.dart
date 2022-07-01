@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../details/detail_gallery.dart';
 
-class GalleryScreen extends StatelessWidget {
+class GalleriaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

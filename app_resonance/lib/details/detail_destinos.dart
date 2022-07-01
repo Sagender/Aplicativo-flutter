@@ -1,12 +1,13 @@
 import 'package:appcarrusel/widgets/contenido_slider.dart';
 import 'package:appcarrusel/widgets/custom_place_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/reference_book.dart';
 
-class DestinosScreen extends StatelessWidget {
-  const DestinosScreen({Key? key}) : super(key: key);
+class DetailsDestinos extends StatelessWidget {
+  const DetailsDestinos({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +20,24 @@ class DestinosScreen extends StatelessWidget {
           _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
+              const SizedBox(
+                height: 15,
+              ),
               //_PosterAndTitle(),
               _Overview(),
 
               const SizedBox(
                 height: 15,
               ),
-              ProductSlider(),
+              ContenidoDestinoSlider(),
+              const SizedBox(
+                height: 20,
+              ),
               _Overview(),
               SizedBox(
                 height: 20,
               ),
-              ProductSlider(),
+              ContenidoDestinoSlider(),
 
               SizedBox(
                 height: 40,
@@ -47,7 +54,7 @@ class _CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       expandedHeight: 350,
       floating: false,
       pinned: true,
@@ -61,7 +68,10 @@ class _CustomAppBar extends StatelessWidget {
           width: double.infinity,
           child: const Text(
             "Detail_Destinos",
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.black87,
+                fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         ),

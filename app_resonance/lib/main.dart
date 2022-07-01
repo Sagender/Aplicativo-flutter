@@ -1,6 +1,6 @@
 import 'package:appcarrusel/details/detail_navBar.dart';
 import 'package:appcarrusel/details/detail_product.dart';
-import 'package:appcarrusel/screens/gallery_screen2.dart';
+import 'package:appcarrusel/screens/galeria_screen.dart';
 import 'package:appcarrusel/widgets/product_card2.dart';
 import 'package:flutter/material.dart';
 
@@ -29,14 +29,14 @@ class MyApp extends StatelessWidget {
       routes: {
         "Splash": (_) => const SplashScreen(),
         "Home": (_) => const HomeScreen(),
-        "Galeria": (_) => GalleryScreen(),
+        "Galeria": (_) => GalleriaScreen(),
         "Details": (_) => const DetailsScreen(),
         "Reservas": (_) => const DetailReservasScreen(),
         "Alerta": (_) => const AlertScreen(),
         "Drawer": (_) => const DrawerScreen(),
-        "DetailsDestinos": (_) => const DestinosScreen(),
+        "DetailsDestinos": (_) => const DetailsDestinos(),
         "Product": (_) => const DetailProduct(),
-        "Contenido": (_) => ProductSlider(),
+        "Contenido": (_) => ContenidoDestinoSlider(),
       },
     );
   }

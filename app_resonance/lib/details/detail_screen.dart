@@ -52,7 +52,9 @@ class buttonUbicacion extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: Colors.green, shape: const StadiumBorder(), elevation: 0),
+            primary: Colors.redAccent,
+            shape: const StadiumBorder(),
+            elevation: 0),
         //onPressed: () => displayDialogAndorid(context)
         onPressed: () {},
         child: const Padding(

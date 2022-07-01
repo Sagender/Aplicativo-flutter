@@ -13,12 +13,12 @@ Future<Places> getUsuarios() async {
   return Places.fromJson(response.body);
 }
 
-class ProductSlider extends StatefulWidget {
+class ContenidoDestinoSlider extends StatefulWidget {
   @override
-  ProductSliderState createState() => ProductSliderState();
+  ContenidoDestinoSliderState createState() => ContenidoDestinoSliderState();
 }
 
-class ProductSliderState extends State<ProductSlider> {
+class ContenidoDestinoSliderState extends State<ContenidoDestinoSlider> {
   final ScrollController scrollController = ScrollController();
 
   @override
@@ -30,12 +30,11 @@ class ProductSliderState extends State<ProductSlider> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 0),
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 8,
+                itemCount: 5,
                 itemBuilder: (_, int index) => CitySlider(),
               ),
             ),
@@ -53,18 +52,15 @@ class CitySlider extends StatelessWidget {
         height: 100,
         child: Column(
           children: [
-            GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "Details"),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: const FadeInImage(
-                    placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image:
-                        NetworkImage("https://via.placeholder.com/500x300.png"),
-                    width: 300,
-                    height: 200,
-                    fit: BoxFit.cover),
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: const FadeInImage(
+                  placeholder: AssetImage("assets/images/no-image.jpg"),
+                  image:
+                      NetworkImage("https://via.placeholder.com/500x300.png"),
+                  width: 300,
+                  height: 200,
+                  fit: BoxFit.cover),
             ),
           ],
         ));

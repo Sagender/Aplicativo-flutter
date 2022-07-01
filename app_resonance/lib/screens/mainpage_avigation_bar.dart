@@ -1,6 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore
 
-import 'package:appcarrusel/screens/gallery_screen2.dart';
+import 'package:appcarrusel/screens/galeria_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens.dart';
@@ -17,10 +17,9 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List pages = [
     HomeScreen(), // Listado de 0-3
-    BookingsScreen(),
-    GalleryScreen(),
-    RecomendadosPage(),
-    BookingsScreen()
+    DestinoScreen(),
+    GalleriaScreen(),
+    OpinionScreen(),
   ];
   int currentIndex = 0; // La Primera vista es Home
   void onTap(int index) {
