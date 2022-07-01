@@ -1,4 +1,3 @@
-import 'package:appcarrusel/details/detail_destinos.dart';
 import 'package:appcarrusel/models/home_model.dart';
 import 'package:flutter/material.dart';
 
@@ -14,12 +13,12 @@ Future<Places> getUsuarios() async {
   return Places.fromJson(response.body);
 }
 
-class DestinoSlider extends StatefulWidget {
+class ProductSlider extends StatefulWidget {
   @override
-  DestinoSliderState createState() => DestinoSliderState();
+  ProductSliderState createState() => ProductSliderState();
 }
 
-class DestinoSliderState extends State<DestinoSlider> {
+class ProductSliderState extends State<ProductSlider> {
   final ScrollController scrollController = ScrollController();
 
   @override
@@ -27,16 +26,16 @@ class DestinoSliderState extends State<DestinoSlider> {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        height: 430,
+        height: 200,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 10),
+            const SizedBox(height: 0),
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 4,
+                itemCount: 8,
                 itemBuilder: (_, int index) => CitySlider(),
               ),
             ),
@@ -49,13 +48,13 @@ class CitySlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        width: 300,
-        height: 350,
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        width: 150,
+        height: 100,
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "DetailsDestinos"),
+              onTap: () => Navigator.pushNamed(context, "Details"),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: const FadeInImage(
@@ -63,39 +62,9 @@ class CitySlider extends StatelessWidget {
                     image:
                         NetworkImage("https://via.placeholder.com/500x300.png"),
                     width: 300,
-                    height: 250,
+                    height: 200,
                     fit: BoxFit.cover),
               ),
-            ),
-            const SizedBox(height: 5),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 10,
-              ),
-              // ignore: prefer_const_literals_to_create_immutables
-              child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    const Text(
-                      "Barranco",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      "No ."
-                      " and typesetting industry. Lorem Ipsum has been"
-                      " the industry's standard dummy text ever since "
-                      "the 1500s, when an unknown printer took a galley of ",
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        fontSize: 14,
-                        height: 1.5,
-                      ),
-                    ),
-                  ]),
             ),
           ],
         ));

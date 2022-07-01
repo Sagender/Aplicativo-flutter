@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.only(top: 20, bottom: 10),
           width: double.infinity,
-          height: 300,
+          height: 200,
           decoration: _cardBorders(),
           child: Stack(
             alignment: Alignment.bottomLeft,

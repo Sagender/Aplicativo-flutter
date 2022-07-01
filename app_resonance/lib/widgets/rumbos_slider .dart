@@ -35,7 +35,7 @@ class RumbosSliderState extends State<RumbosSlider> {
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 8,
+                itemCount: 6,
                 itemBuilder: (_, int index) => CitySlider(),
               ),
             ),
@@ -54,7 +54,7 @@ class CitySlider extends StatelessWidget {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "Details"),
+              onTap: () => Navigator.pushNamed(context, "Product"),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: const FadeInImage(

@@ -4,7 +4,7 @@ import 'package:appcarrusel/widgets/rumbos_slider%20.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/destino_slider .dart';
-import '../widgets/product_card.dart';
+import '../widgets/product_card2.dart';
 
 class BookingsScreen extends StatelessWidget {
   const BookingsScreen({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class BookingsScreen extends StatelessWidget {
       ),
       body: ListView.separated(
           separatorBuilder: (_, __) => const Divider(),
-          itemCount: 2,
+          itemCount: 4,
           itemBuilder: (BuildContext context, int index) => Column(
                 children: [
                   DestinoSlider(),
@@ -101,44 +101,38 @@ class buttonOption extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Center(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Colors.green,
-                shape: const StadiumBorder(),
-                elevation: 0),
-            //onPressed: () => displayDialogAndorid(context)
-            onPressed: () {},
-            child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("descubre", style: TextStyle(color: Colors.white))),
-          ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+              shape: const StadiumBorder(),
+              elevation: 0),
+          //onPressed: () => displayDialogAndorid(context)
+          onPressed: () => Navigator.pushNamed(context, "Product"),
+          child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Text("Boletería", style: TextStyle(color: Colors.white))),
         ),
-        Center(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Colors.green,
-                shape: const StadiumBorder(),
-                elevation: 0),
-            //onPressed: () => displayDialogAndorid(context)
-            onPressed: () {},
-            child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("descubre", style: TextStyle(color: Colors.white))),
-          ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+              shape: const StadiumBorder(),
+              elevation: 0),
+          //onPressed: () => displayDialogAndorid(context)
+          onPressed: () {},
+          child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+              child: Text("descubre", style: TextStyle(color: Colors.white))),
         ),
-        Center(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Colors.green,
-                shape: const StadiumBorder(),
-                elevation: 0),
-            //onPressed: () => displayDialogAndorid(context)
-            onPressed: () {},
-            child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text("descubre", style: TextStyle(color: Colors.white))),
-          ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+              shape: const StadiumBorder(),
+              elevation: 0),
+          //onPressed: () => displayDialogAndorid(context)
+          onPressed: () {},
+          child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Text("Ubicación", style: TextStyle(color: Colors.white))),
         ),
       ],
     );

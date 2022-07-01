@@ -80,8 +80,6 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 15),
           PlaceSlider(),
           SizedBox(height: 25),
-          PlaceSlider(),
-          SizedBox(height: 25),
 
           // Agregar un contenedor para la última parte Container(),
 

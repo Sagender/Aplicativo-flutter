@@ -1,16 +1,18 @@
+import 'package:appcarrusel/widgets/contenido_slider.dart';
 import 'package:appcarrusel/widgets/custom_place_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/reference_book.dart';
 
-class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({Key? key}) : super(key: key);
+class DestinosScreen extends StatelessWidget {
+  const DestinosScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final String place =
-        ModalRoute.of(context)?.settings.arguments.toString() ?? "no.place";
+        ModalRoute.of(context)?.settings.arguments.toString() ??
+            "Destinosno.place";
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -19,45 +21,23 @@ class DetailsScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               //_PosterAndTitle(),
               _Overview(),
-              buttonUbicacion(),
 
-              const Divider(),
-              const referenceBook(),
-
-              const Divider(),
-              const referenceBook(),
-
-              const Divider(),
-              const referenceBook(),
-
-              const Divider(),
               const SizedBox(
-                height: 35,
-              )
+                height: 15,
+              ),
+              ProductSlider(),
+              _Overview(),
+              SizedBox(
+                height: 20,
+              ),
+              ProductSlider(),
+
+              SizedBox(
+                height: 40,
+              ),
             ]),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class buttonUbicacion extends StatelessWidget {
-  const buttonUbicacion({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            primary: Colors.green, shape: const StadiumBorder(), elevation: 0),
-        //onPressed: () => displayDialogAndorid(context)
-        onPressed: () {},
-        child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Text("Ubicación", style: TextStyle(color: Colors.white))),
       ),
     );
   }
@@ -80,7 +60,7 @@ class _CustomAppBar extends StatelessWidget {
           color: Colors.black12,
           width: double.infinity,
           child: const Text(
-            "place.title",
+            "Detail_Destinos",
             style: TextStyle(fontSize: 16),
             textAlign: TextAlign.center,
           ),
@@ -107,7 +87,7 @@ class _Overview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Conoce un poco más",
+            "Que visitar: Detail Destino",
             style: GoogleFonts.acme(fontSize: 20, color: Colors.black87),
           ),
           const Text(
