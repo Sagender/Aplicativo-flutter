@@ -21,20 +21,76 @@ class DetailHistory extends StatelessWidget {
           _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              _Overview(),
-              CustomCardType1(),
-              SizedBox(
-                height: 10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 20,
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text("La Tarumba",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black,
+                                    fontSize: 18)),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.red,
+                                ),
+                                Text("50"),
+                              ],
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              CustomCardType1(),
-              SizedBox(
-                height: 10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    Icons.call,
+                    color: Colors.blue,
+                  ),
+                  Icon(
+                    Icons.route,
+                    color: Colors.blue,
+                  ),
+                  Icon(
+                    Icons.share,
+                    color: Colors.blue,
+                  )
+                ],
               ),
-              CustomCardType1(),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
-              CustomCardType1(),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                child: Container(
+                  child: Text(
+                    "Ea exercitation labore incididunt aliquip do. Culpa ea ipsum exercitation irure in voluptate. Anim quis culpa tempor veniam dolore."
+                    "Ea exercitation labore incididunt aliquip do. Culpa ea ipsum exercitation irure in voluptate. Anim quis culpa tempor veniam dolore."
+                    "Ea exercitation labore incididunt aliquip do. Culpa ea ipsum exercitation irure in voluptate. Anim quis culpa tempor veniam dolore.",
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+              )
             ]),
           ),
         ],
@@ -60,14 +116,15 @@ class _CustomAppBar extends StatelessWidget {
           color: Colors.black12,
           width: double.infinity,
           child: const Text(
-            "Detail Product",
+            "History place",
             style: TextStyle(fontSize: 16),
             textAlign: TextAlign.center,
           ),
         ),
         background: const FadeInImage(
           placeholder: AssetImage("assets/images/no-image.jpg"),
-          image: NetworkImage("https://via.placeholder.com/500x300.png"),
+          image: NetworkImage(
+              "http://paseosescolares.pe/wp-content/uploads/2015/11/337.jpg"),
           fit: BoxFit.cover,
         ),
       ),
