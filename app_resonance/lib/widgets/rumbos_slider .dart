@@ -54,13 +54,13 @@ class CitySlider extends StatelessWidget {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "Product"),
+              onTap: () => Navigator.pushNamed(context, "History"),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: const FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image:
-                        NetworkImage("https://via.placeholder.com/500x300.png"),
+                    image: NetworkImage(
+                        "https://live.staticflickr.com/1941/31582966498_8beca335c3_b.jpg"),
                     width: 300,
                     height: 200,
                     fit: BoxFit.cover),

@@ -21,7 +21,7 @@ class DestinoScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(Icons.card_giftcard, color: Colors.black)),
+              icon: Icon(Icons.shopping_cart, color: Colors.black)),
           IconButton(
               onPressed: () {}, icon: Icon(Icons.search, color: Colors.black)),
         ],

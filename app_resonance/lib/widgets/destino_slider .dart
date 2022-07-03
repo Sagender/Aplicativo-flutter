@@ -60,8 +60,8 @@ class CitySlider extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 child: const FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image:
-                        NetworkImage("https://via.placeholder.com/500x300.png"),
+                    image: NetworkImage(
+                        "https://pbs.twimg.com/media/DEubcEwVYAAkaM6.jpg"),
                     width: 300,
                     height: 250,
                     fit: BoxFit.cover),

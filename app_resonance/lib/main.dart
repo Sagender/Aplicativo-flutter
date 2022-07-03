@@ -1,3 +1,4 @@
+import 'package:appcarrusel/details/detail_history.dart';
 import 'package:appcarrusel/details/detail_navBar.dart';
 import 'package:appcarrusel/details/detail_product.dart';
 import 'package:appcarrusel/screens/galeria_screen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         "DetailsDestinos": (_) => const DetailsDestinos(),
         "Product": (_) => const DetailProduct(),
         "Contenido": (_) => ContenidoDestinoSlider(),
+        "History": (_) => DetailHistory(),
       },
     );
   }

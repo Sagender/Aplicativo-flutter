@@ -113,6 +113,7 @@ class Recomendation extends StatefulWidget {
 }
 
 class _RecomendationState extends State<Recomendation> {
+  //Propiedad empleada para el RatingBar
   double? _ratingValue;
 
   @override
@@ -131,7 +132,7 @@ class _RecomendationState extends State<Recomendation> {
                     child: const FadeInImage(
                         placeholder: AssetImage("assets/images/no-image.jpg"),
                         image: NetworkImage(
-                            "https://via.placeholder.com/500x300.png"),
+                            "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/07/20/000519497W.jpg"),
                         width: 200,
                         height: 150,
                         fit: BoxFit.cover),
@@ -153,7 +154,7 @@ class _RecomendationState extends State<Recomendation> {
                         initialRating: 0,
                         direction: Axis.horizontal,
                         allowHalfRating: true,
-                        itemCount: 4,
+                        itemCount: 5,
                         ratingWidget: RatingWidget(
                             full: const Icon(
                               Icons.star,
@@ -172,6 +173,7 @@ class _RecomendationState extends State<Recomendation> {
                             )),
                         onRatingUpdate: (value) {
                           setState(() {
+                            print(value);
                             _ratingValue = value;
                           });
                         }),
