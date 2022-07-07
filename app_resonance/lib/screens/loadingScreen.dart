@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../details/detail_navBar.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -7,19 +8,22 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.white,
-            title: Text(
-              "Reservas",
-              style: GoogleFonts.indieFlower(
-                  color: Colors.black,
-                  fontSize: 20.6,
-                  fontWeight: FontWeight.w700),
-            )),
+        drawer: DrawerScreen(),
+        appBar: appBar(),
         body: const Center(
             child: CircularProgressIndicator(
           color: Colors.red,
         )));
   }
+}
+
+AppBar appBar() {
+  return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      leading: Builder(builder: (context) {
+        return IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: Icon(Icons.menu, color: Colors.black));
+      }));
 }

@@ -21,20 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
         Duration(seconds: 4),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => LoginPage())));
-    /*void initSate() {
-    var d = Duration(seconds: 1);
-    Future.delayed(
-      d,
-      () {
-        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-          builder: (context) {
-            return HomePage();
-          },
-        ), (route) => false);
-      },
-    );
-
-    super.initState();*/
   }
 
   @override

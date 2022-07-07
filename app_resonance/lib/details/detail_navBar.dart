@@ -1,5 +1,6 @@
-import 'package:appcarrusel/services.dart/collaborators.dart';
 import 'package:flutter/material.dart';
+
+import '../services/collaborators.dart';
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({Key? key}) : super(key: key);

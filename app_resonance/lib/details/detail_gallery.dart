@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {
-  final String imageNetwork;
-  final String title;
-  final String autor;
-
-  final String details;
-  final int index;
-  DetailsPage(
-      {required this.imageNetwork,
-      required this.title,
-      required this.autor,
-      required this.details,
-      required this.index});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +15,7 @@ class DetailsPage extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        title,
+                        "title",
                         style: const TextStyle(
                           color: Colors.black87,
                           fontSize: 22,
@@ -35,7 +23,7 @@ class DetailsPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'By $autor',
+                        'By Autor',
                         style: const TextStyle(
                           color: Colors.red,
                           fontSize: 10,
@@ -47,12 +35,14 @@ class DetailsPage extends StatelessWidget {
                     height: 15,
                   ),
                   Hero(
-                    tag: 'logo$index',
+                    tag: 'logo',
                     child: Container(
                       child: ClipRRect(
-                        child: Image(
-                          image: NetworkImage(imageNetwork),
-                          fit: BoxFit.contain,
+                        child: FadeInImage(
+                          image: NetworkImage(
+                              "https://www.rumbosdelperu.com/wp-content/uploads/2021/10/01-Barranco-Lima-Murales-Tiny-Travelogue-2.jpg"),
+                          fit: BoxFit.cover,
+                          placeholder: AssetImage("assets/images/no-image.jpg"),
                         ),
                       ),
                     ),

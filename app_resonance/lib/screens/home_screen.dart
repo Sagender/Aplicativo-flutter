@@ -2,18 +2,25 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../details/detail_navBar.dart';
 import '../details/detail_doIt.dart';
 import '../details/detail_eat.dart';
-import '../widgets/custom_tab.dart';
+import '../services/places_services.dart';
+
 import '../widgets/place_slider.dart';
+import 'screens.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final _pageController = PageController(viewportFraction: 0.877);
+    // final _pageController = PageController(viewportFraction: 0.877);
+
+    final placeService = Provider.of<PlaceService>(context);
+
+    if (placeService.isLoading) return LoadingScreen();
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: DrawerScreen(),
@@ -22,15 +29,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(children: <Widget>[
           //Método para llamara a la búsqueda
 
-          Padding(
-              padding: EdgeInsets.only(top: 20, left: 43.0),
-              child: Text(
-                "Descubre con\n    Ripuy", //
-                style: GoogleFonts.indieFlower(
-                    color: Colors.black,
-                    fontSize: 45.6,
-                    fontWeight: FontWeight.w700),
-              )),
+          titleHome(),
           SearchContainer(),
           Container(
               color: Colors.white,
@@ -38,44 +37,7 @@ class HomeScreen extends StatelessWidget {
               margin: EdgeInsets.only(left: 64.4, top: 8.8),
               child: DefaultTabController(
                 length: 2, // cuenta cuantas tabs van a ser usadas
-                child: TabBar(
-                    labelPadding: EdgeInsets.only(left: 14.4, right: 14.4),
-                    indicatorPadding: EdgeInsets.only(left: 54.4, right: 14.4),
-                    isScrollable: true,
-                    labelColor: Color(0xFF000000),
-                    unselectedLabelColor: Color(0xFF8a8a8a),
-                    labelStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-                    indicator: RoundedRectangleTabIndicator(
-                        color: Color(0xFF000000), weight: 2.4, width: 14.4),
-                    tabs: [
-                      Container(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => Doit()));
-                          },
-                          child: Tab(
-                            child: Container(
-                              child: Text("Cosas que hacer"),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => Eatit()));
-                          },
-                          child: Tab(
-                            child: Container(
-                              child: Text("Donde Comer"),
-                            ),
-                          ),
-                        ),
-                      )
-                    ]),
+                child: tabBar(),
               )),
           SizedBox(height: 15),
           PlaceSlider(),
@@ -145,5 +107,69 @@ class HomeScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class tabBar extends StatelessWidget {
+  const tabBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBar(
+        labelPadding: EdgeInsets.only(left: 14.4, right: 14.4),
+        indicatorPadding: EdgeInsets.only(left: 54.4, right: 14.4),
+        isScrollable: true,
+        labelColor: Color(0xFF000000),
+        unselectedLabelColor: Color(0xFF8a8a8a),
+        labelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+        indicator: RoundedRectangleTabIndicator(
+            color: Color(0xFF000000), weight: 2.4, width: 14.4),
+        tabs: [
+          Container(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Doit()));
+              },
+              child: Tab(
+                child: Container(
+                  child: Text("Cosas que hacer"),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Eatit()));
+              },
+              child: Tab(
+                child: Container(
+                  child: Text("Donde Comer"),
+                ),
+              ),
+            ),
+          )
+        ]);
+  }
+}
+
+class titleHome extends StatelessWidget {
+  const titleHome({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(top: 20, left: 43.0),
+        child: Text(
+          "Descubre con\n    Ripuy", //
+          style: GoogleFonts.indieFlower(
+              color: Colors.black, fontSize: 45.6, fontWeight: FontWeight.w700),
+        ));
   }
 }

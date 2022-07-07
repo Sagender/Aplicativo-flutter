@@ -47,13 +47,7 @@ class GalleriaScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailsPage(
-                              imageNetwork: _images[index].imageNetwork,
-                              title: _images[index].title,
-                              autor: _images[index].autor,
-                              details: _images[index].details,
-                              index: index,
-                            ),
+                            builder: (context) => DetailsPage(),
                           ),
                         );
                       },
@@ -63,8 +57,9 @@ class GalleriaScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             child: FadeInImage(
-                              fit: BoxFit.fitHeight,
-                              image: NetworkImage(_images[index].imageNetwork),
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://gestion.pe/resizer/xC_8FBqpSka8RbHWscb8M1jWN6s=/980x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/IM7TEGJQ5JDDFORAQ4SXS35RXI.jpg"),
                               placeholder:
                                   AssetImage("assets/images/no-image.jpg"),
                               height: 250,
@@ -75,7 +70,7 @@ class GalleriaScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  itemCount: _images.length,
+                  itemCount: 10,
                 ),
               ),
             )
@@ -85,149 +80,3 @@ class GalleriaScreen extends StatelessWidget {
     );
   }
 }
-
-class ImageDetails {
-  final String imageNetwork;
-
-  final String autor;
-  final String title;
-  final String details;
-  ImageDetails({
-    required this.imageNetwork,
-    required this.autor,
-    required this.title,
-    required this.details,
-  });
-}
-
-List<ImageDetails> _images = [
-  ImageDetails(
-    imageNetwork:
-        "https://www.rumbosdelperu.com/wp-content/uploads/2021/10/01-Barranco-Lima-Murales-Tiny-Travelogue-2.jpg",
-    autor: 'Martin Andres',
-    title: 'Barranco',
-    details:
-        'This image was taken during a party in New York on new years eve. Quite a colorful shot.',
-  ),
-  ImageDetails(
-    imageNetwork:
-        "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/39/7e/39.jpg",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork:
-        "https://www.peru.travel/Contenido/Noticia/Imagen/pe/920/1.0/Principal/019657.jpg",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-  ImageDetails(
-    imageNetwork: "https://via.placeholder.com/500x300.png",
-    autor: 'Abraham Costa',
-    title: 'Chorrillos',
-    details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error aspernatur, sequi inventore eligendi vitae dolorem animi suscipit. Nobis, cumque.',
-  ),
-];

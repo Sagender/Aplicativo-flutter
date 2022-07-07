@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class referenceBook extends StatelessWidget {
-  const referenceBook({
+import '../models/place_model.dart';
+
+class ReferenceBook extends StatelessWidget {
+  final Place place;
+
+  const ReferenceBook({
     Key? key,
+    required this.place,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: Text(
-            "Título del Lugar",
+            place.title,
+            textAlign: TextAlign.center,
             style: GoogleFonts.acme(fontSize: 20, color: Colors.black87),
           ),
         ),
-        _PosterAndTitle(),
+        _PosterAndTitle(
+          place: place,
+        ),
       ],
     );
   }
 }
 
 class _PosterAndTitle extends StatelessWidget {
+  final Place place;
+
+  const _PosterAndTitle({Key? key, required this.place}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -43,11 +54,10 @@ class _PosterAndTitle extends StatelessWidget {
                 onTap: () {},
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: const FadeInImage(
+                  child: FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image:
-                        NetworkImage("https://via.placeholder.com/400x250.png"),
-                    height: 200,
+                    image: NetworkImage(place.background),
+                    height: 210,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -55,7 +65,7 @@ class _PosterAndTitle extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const Icon(Icons.star_outline, size: 15, color: Colors.grey),
+                  const Icon(Icons.star_outline, size: 15, color: Colors.red),
                   const SizedBox(width: 5),
                   Text("Valoración", style: textTheme.caption),
                   const SizedBox(width: 20),
@@ -69,6 +79,20 @@ class _PosterAndTitle extends StatelessWidget {
                   Text("Dislike",
                       style: textTheme.caption) //colodado como un String
                 ],
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 5,
+                  vertical: 20,
+                ),
+                child: Text(
+                  place.context,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 12,
+                    height: 1.5,
+                  ),
+                ),
               )
             ],
           ),

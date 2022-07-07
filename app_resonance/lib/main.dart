@@ -1,20 +1,30 @@
-import 'package:appcarrusel/details/detail_history.dart';
-import 'package:appcarrusel/details/detail_navBar.dart';
-import 'package:appcarrusel/details/detail_product.dart';
-import 'package:appcarrusel/screens/galeria_screen.dart';
-import 'package:appcarrusel/widgets/product_card2.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'details/detail_destinos.dart';
+import 'details/detail_history.dart';
+import 'details/detail_navBar.dart';
+import 'details/detail_product.dart';
 import 'details/detail_screen.dart';
 import 'package:flutter/services.dart';
 
+import 'screens/galeria_screen.dart';
 import 'screens/screens.dart';
 
+import 'services/places_services.dart';
 import 'splash/splashScreen.dart';
 import 'widgets/contenido_slider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(AppState());
+
+class AppState extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_) => PlaceService(), lazy: false),
+    ], child: MyApp());
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -23,9 +33,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //Para dar color a la barra de hora y bateria
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Movies',
+      title: 'RipuyApp',
       initialRoute: "Splash",
       routes: {
         "Splash": (_) => const SplashScreen(),

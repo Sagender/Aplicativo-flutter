@@ -1,18 +1,4 @@
-import 'package:appcarrusel/details/detail_destinos.dart';
-import 'package:appcarrusel/models/home_model.dart';
 import 'package:flutter/material.dart';
-
-import 'package:http/http.dart' as http;
-
-Future<Places> getUsuarios() async {
-  var url = Uri.https('apiflutter.azurewebsites.net/api', 'api/post.php');
-  // var url = Uri.https('62abfa10bd0e5d29af187068.mockapi.io', '/prueba/api/v1/empleados');
-  final response = await http.get(url);
-  // String stringValue = response.toString();
-  // stringValue = stringValue.replaceAll("[", "").replaceAll("]", "");
-  // print(json.decode(response.body));
-  return Places.fromJson(response.body);
-}
 
 class DestinoSlider extends StatefulWidget {
   @override

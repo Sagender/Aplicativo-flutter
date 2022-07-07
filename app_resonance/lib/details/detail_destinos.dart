@@ -1,19 +1,13 @@
-import 'package:appcarrusel/widgets/contenido_slider.dart';
-import 'package:appcarrusel/widgets/custom_place_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/reference_book.dart';
+import '../widgets/contenido_slider.dart';
 
 class DetailsDestinos extends StatelessWidget {
   const DetailsDestinos({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final String place =
-        ModalRoute.of(context)?.settings.arguments.toString() ??
-            "Destinosno.place";
     return Scaffold(
       body: CustomScrollView(
         slivers: [

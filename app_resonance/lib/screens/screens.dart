@@ -1,6 +1,7 @@
+export '../screens/loadingScreen.dart';
+
 export '../screens/alert_scren.dart';
 
-export '../models/recommend_model.dart';
 export '../widgets/custom_tab.dart';
 export 'destinos_screen.dart';
 

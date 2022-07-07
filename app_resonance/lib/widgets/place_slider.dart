@@ -1,17 +1,9 @@
-import 'package:appcarrusel/models/home_model.dart';
 import 'package:flutter/material.dart';
 
-import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
-Future<Places> getUsuarios() async {
-  var url = Uri.https('apiflutter.azurewebsites.net/api', 'api/post.php');
-  // var url = Uri.https('62abfa10bd0e5d29af187068.mockapi.io', '/prueba/api/v1/empleados');
-  final response = await http.get(url);
-  // String stringValue = response.toString();
-  // stringValue = stringValue.replaceAll("[", "").replaceAll("]", "");
-  // print(json.decode(response.body));
-  return Places.fromJson(response.body);
-}
+import '../models/place_model.dart';
+import '../services/places_services.dart';
 
 class PlaceSlider extends StatefulWidget {
   @override
@@ -22,8 +14,9 @@ class PlaceSliderState extends State<PlaceSlider> {
   final ScrollController scrollController = ScrollController();
 
   @override
-  @override
   Widget build(BuildContext context) {
+    //Argumento para llamar a la Api
+    final placeService = Provider.of<PlaceService>(context);
     return Container(
         width: double.infinity,
         height: 500,
@@ -42,8 +35,10 @@ class PlaceSliderState extends State<PlaceSlider> {
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 4,
-                itemBuilder: (_, int index) => CitySlider(),
+                itemCount: placeService.place.length,
+                itemBuilder: (_, int index) => CitySlider(
+                  place: placeService.place[index],
+                ),
               ),
             ),
           ],
@@ -52,6 +47,9 @@ class PlaceSliderState extends State<PlaceSlider> {
 }
 
 class CitySlider extends StatelessWidget {
+  final Place place;
+  const CitySlider({Key? key, required this.place}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,21 +59,21 @@ class CitySlider extends StatelessWidget {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "Details"),
+              onTap: () =>
+                  Navigator.pushNamed(context, "Details", arguments: place),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: const FadeInImage(
+                child: FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image: NetworkImage(
-                        "http://paseosescolares.pe/wp-content/uploads/2015/11/337.jpg"),
+                    image: NetworkImage(place.picture),
                     width: 300,
                     height: 250,
                     fit: BoxFit.cover),
               ),
             ),
             const SizedBox(height: 5),
-            const Text(
-              "Lugares que visitar",
+            Text(
+              place.ubication,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
@@ -89,23 +87,18 @@ class CitySlider extends StatelessWidget {
               child: Column(crossAxisAlignment: CrossAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    const Text(
-                      "Barranco",
+                    Text(
+                      place.name,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
-                      "No ."
-                      " and typesetting industry. Lorem Ipsum has been"
-                      " the industry's standard dummy text ever since "
-                      "the 1500s, when an unknown printer took a galley of "
-                      "type and scrambled it to make a type specimen book."
-                      " It has survived not only five centuries, but also",
+                    Text(
+                      place.description,
                       textAlign: TextAlign.justify,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         height: 1.5,
                       ),
                     ),
