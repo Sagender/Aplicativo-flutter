@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'details/detail_destinos.dart';
+import 'details/detail_gallery.dart';
 import 'details/detail_history.dart';
 import 'details/detail_navBar.dart';
 import 'details/detail_product.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         "Product": (_) => const DetailProduct(),
         "Contenido": (_) => ContenidoDestinoSlider(),
         "History": (_) => DetailHistory(),
+        "DetailGalery": (_) => DetailsPage(),
       },
     );
   }

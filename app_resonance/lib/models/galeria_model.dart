@@ -18,9 +18,17 @@ class Galeria {
 
   factory Galeria.fromJson(String str) => Galeria.fromMap(json.decode(str));
 
+  String toJson() => json.encode(toMap());
+
   factory Galeria.fromMap(Map<String, dynamic> json) => Galeria(
         autor: json["autor"],
         picture: json["picture"],
         title: json["title"],
       );
+
+  Map<String, dynamic> toMap() => {
+        "autor": autor,
+        "picture": picture,
+        "title": title,
+      };
 }

@@ -24,6 +24,7 @@ class DetailsScreen extends StatelessWidget {
               //_PosterAndTitle(),
               _Overview(place: place),
               buttonUbicacion(),
+              buttonSection(),
 
               const Divider(),
               ReferenceBook(place: place),
@@ -57,6 +58,54 @@ class buttonUbicacion extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text("Ubicación", style: TextStyle(color: Colors.white))),
       ),
+    );
+  }
+}
+
+class buttonSection extends StatelessWidget {
+  const buttonSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          customButton(icon: Icons.call, text: "CALL"),
+          customButton(icon: Icons.route, text: "ROUTE"),
+          customButton(icon: Icons.share, text: "SHARE")
+        ],
+      ),
+    );
+  }
+}
+
+class customButton extends StatelessWidget {
+  //Argumentos
+  final IconData icon;
+  final String text;
+
+  const customButton({
+    Key? key,
+    required this.icon,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.red),
+        SizedBox(
+          height: 10,
+        ),
+        Text(text,
+            style: TextStyle(
+                fontSize: 10, color: Colors.black, fontWeight: FontWeight.bold))
+      ],
     );
   }
 }
