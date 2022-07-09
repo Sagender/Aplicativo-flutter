@@ -23,14 +23,12 @@ class DetailsScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               //_PosterAndTitle(),
               _Overview(place: place),
-              buttonUbicacion(),
-              buttonSection(),
+              //buttonUbicacion(),
 
-              const Divider(),
               ReferenceBook(place: place),
               const SizedBox(
                 height: 35,
-              )
+              ),
             ]),
           ),
         ],
@@ -117,24 +115,24 @@ class _CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       expandedHeight: 350,
-      floating: false,
-      pinned: true,
+      floating: true,
+      pinned: false,
       flexibleSpace: FlexibleSpaceBar(
-        centerTitle: true,
-        titlePadding: const EdgeInsets.all(0),
-        title: Container(
-          alignment: Alignment.bottomCenter,
-          padding: const EdgeInsets.only(bottom: 20, left: 20, right: 10),
-          color: Colors.black12,
-          width: double.infinity,
-          child: Text(
-            place.name,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-        ),
+        //centerTitle: true,
+        //titlePadding: const EdgeInsets.all(0),
+        //title: Container(
+        //  alignment: Alignment.bottomCenter,
+        //  padding: const EdgeInsets.only(bottom: 20, left: 20, right: 10),
+        //  color: Colors.black12,
+        //  width: double.infinity,
+        //  child: Text(
+        //    place.name,
+        //    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        //    textAlign: TextAlign.center,
+        //  ),
+        //),
         background: FadeInImage(
           placeholder: AssetImage("assets/images/no-image.jpg"),
           image: NetworkImage(place.picture),
@@ -171,6 +169,10 @@ class _Overview extends StatelessWidget {
               height: 1.5,
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          buttonUbicacion(),
         ],
       ),
     );

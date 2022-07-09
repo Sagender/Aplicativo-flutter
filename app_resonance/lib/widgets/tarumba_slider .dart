@@ -21,26 +21,26 @@ class TarumbaSliderState extends State<TarumbaSlider> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TitleSlider(),
+            _TitleSlider(),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
                 itemCount: placeService.tarumba.length,
-                itemBuilder: (_, int index) => CitySlider(
+                itemBuilder: (_, int index) => _CitySlider(
                   tarumba: placeService.tarumba[index],
                 ),
               ),
             ),
-            ButtonOption(),
+            _ButtonOption(),
           ],
         ));
   }
 }
 
-class TitleSlider extends StatelessWidget {
-  const TitleSlider({
+class _TitleSlider extends StatelessWidget {
+  const _TitleSlider({
     Key? key,
   }) : super(key: key);
 
@@ -55,10 +55,10 @@ class TitleSlider extends StatelessWidget {
   }
 }
 
-class CitySlider extends StatelessWidget {
+class _CitySlider extends StatelessWidget {
   final Tarumba tarumba;
 
-  const CitySlider({Key? key, required this.tarumba}) : super(key: key);
+  const _CitySlider({Key? key, required this.tarumba}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,8 +85,8 @@ class CitySlider extends StatelessWidget {
   }
 }
 
-class ButtonOption extends StatelessWidget {
-  const ButtonOption({
+class _ButtonOption extends StatelessWidget {
+  const _ButtonOption({
     Key? key,
   }) : super(key: key);
 

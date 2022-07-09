@@ -16,12 +16,18 @@ class OpinionScreen extends StatelessWidget {
               height: 50,
             ),
             TitleOpinion(),
+            SizedBox(
+              height: 20,
+            ),
             Center(
                 child: CircleAvatar(
               maxRadius: 50,
               backgroundImage: NetworkImage(
                   "https://www.tonica.la/__export/1650567919637/sites/debate/img/2022/04/21/tanjiro-kamado-marca.jpg_423682103.jpg"),
             )),
+            SizedBox(
+              height: 20,
+            ),
             ButtonOption(),
             const SizedBox(height: 30),
             RecomendationSlider(),

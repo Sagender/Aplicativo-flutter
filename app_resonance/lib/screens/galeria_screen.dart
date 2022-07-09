@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../models/galeria_model.dart';
@@ -15,12 +16,9 @@ class GalleriaScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const SizedBox(
-              height: 40,
+              height: 10,
             ),
             TitleGaleria(),
-            const SizedBox(
-              height: 5,
-            ),
             Expanded(
                 child: Container(
               padding: const EdgeInsets.symmetric(
@@ -84,14 +82,17 @@ class TitleGaleria extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'Galería',
-      style: TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.w600,
-        color: Colors.black87,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Text(
+        'Nuestras fotos',
+        style: GoogleFonts.roboto(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          color: Colors.black87,
+        ),
+        textAlign: TextAlign.start,
       ),
-      textAlign: TextAlign.center,
     );
   }
 }

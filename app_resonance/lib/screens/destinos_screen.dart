@@ -15,11 +15,11 @@ class DestinoScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: const Text("Destinos en Lima",
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.w700)),
+        // title: const Text("Destinos en Lima",
+        //     style: TextStyle(
+        //         color: Colors.black,
+        //         fontSize: 20,
+        //         fontWeight: FontWeight.w700)),
         actions: [
           IconButton(
               onPressed: () {},
@@ -35,17 +35,6 @@ class DestinoScreen extends StatelessWidget {
                 children: [
                   DestinoSlider(),
                   const Divider(),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  //TarumbaSlider(),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Destino1Slider(),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   MuseoSlider(),
                 ],
               )),

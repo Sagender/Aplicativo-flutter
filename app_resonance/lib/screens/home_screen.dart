@@ -165,11 +165,11 @@ class titleHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: 20, left: 43.0),
+        padding: EdgeInsets.only(top: 20, left: 10.0),
         child: Text(
           "Descubre con\n    Ripuy", //
           style: GoogleFonts.indieFlower(
-              color: Colors.black, fontSize: 45.6, fontWeight: FontWeight.w700),
+              color: Colors.black, fontSize: 58.6, fontWeight: FontWeight.w900),
         ));
   }
 }

@@ -14,14 +14,17 @@ class ReferenceBook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
           child: Text(
             place.title,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.acme(fontSize: 20, color: Colors.black87),
+            //textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.black87,
+                fontWeight: FontWeight.bold),
           ),
         ),
         _PosterAndTitle(
@@ -62,21 +65,22 @@ class _PosterAndTitle extends StatelessWidget {
                   ),
                 ),
               ),
+              buttonSection(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const Icon(Icons.star_outline, size: 15, color: Colors.red),
                   const SizedBox(width: 5),
-                  Text("Valoración", style: textTheme.caption),
+                  Text("Valoración: 8.5", style: textTheme.caption),
                   const SizedBox(width: 20),
                   const Icon(Icons.star_outline, size: 15, color: Colors.grey),
                   const SizedBox(width: 5),
-                  Text("Like",
+                  Text("Likes: 580",
                       style: textTheme.caption), //colodado como un String
                   const SizedBox(width: 20), //colodado como un String
                   const Icon(Icons.star_outline, size: 15, color: Colors.grey),
                   const SizedBox(width: 5),
-                  Text("Dislike",
+                  Text("Dislike: 20",
                       style: textTheme.caption) //colodado como un String
                 ],
               ),
@@ -98,6 +102,54 @@ class _PosterAndTitle extends StatelessWidget {
           ),
         )
       ]),
+    );
+  }
+}
+
+class buttonSection extends StatelessWidget {
+  const buttonSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          customButton(icon: Icons.call, text: "CALL"),
+          customButton(icon: Icons.route, text: "ROUTE"),
+          customButton(icon: Icons.share, text: "SHARE")
+        ],
+      ),
+    );
+  }
+}
+
+class customButton extends StatelessWidget {
+  //Argumentos
+  final IconData icon;
+  final String text;
+
+  const customButton({
+    Key? key,
+    required this.icon,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.red),
+        SizedBox(
+          height: 10,
+        ),
+        Text(text,
+            style: TextStyle(
+                fontSize: 10, color: Colors.black, fontWeight: FontWeight.bold))
+      ],
     );
   }
 }

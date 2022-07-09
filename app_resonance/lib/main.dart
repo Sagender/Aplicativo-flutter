@@ -16,7 +16,9 @@ import 'services/places_services.dart';
 import 'splash/splashScreen.dart';
 import 'widgets/contenido_slider.dart';
 
-void main() => runApp(AppState());
+void main() {
+  runApp(AppState());
+}
 
 class AppState extends StatelessWidget {
   @override
@@ -32,8 +34,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Para dar color a la barra de hora y bateria
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    SystemChrome.setPreferredOrientations([
+      // Este código evita que la orientación sea en horizontal
+      DeviceOrientation.portraitUp,
+    ]);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
