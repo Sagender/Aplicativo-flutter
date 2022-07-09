@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, file_names, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, file_names, sized_box_for_whitespace, camel_case_types
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -187,8 +187,8 @@ class contenidoDetail extends StatelessWidget {
         children: <Widget>[
           //Tamaño del card
           Container(
-            width: 120,
-            height: 120,
+            width: 100,
+            height: 100,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: FadeInImage(
