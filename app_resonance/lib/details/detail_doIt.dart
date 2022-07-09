@@ -185,7 +185,7 @@ class contenidoDetail extends StatelessWidget {
               //color de la caja
               color: Colors.white,
             ),
-            width: 120,
+            width: 100,
             height: 120,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),

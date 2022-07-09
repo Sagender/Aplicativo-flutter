@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'details/detail_destinos1.dart';
 import 'details/detail_destinos.dart';
 import 'details/detail_gallery.dart';
 import 'details/detail_history.dart';
@@ -20,6 +21,7 @@ void main() {
   runApp(AppState());
 }
 
+// Redibujar todos los Widgets con la información de la Apis
 class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class MyApp extends StatelessWidget {
         "Alerta": (_) => const AlertScreen(),
         "Drawer": (_) => const DrawerScreen(),
         "DetailsDestinos": (_) => const DetailsDestinos(),
+        "DetailsDestinos1": (_) => const DetailsDestinos1(),
         "Product": (_) => const DetailProduct(),
         "Contenido": (_) => ContenidoDestinoSlider(),
         "History": (_) => DetailHistory(),

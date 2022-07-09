@@ -1,45 +1,29 @@
 import 'package:flutter/material.dart';
 
-// Implementación de Apis
-import 'package:provider/provider.dart';
-
-import '../models/place_model.dart';
-import '../services/places_services.dart';
-
-class PlaceSlider extends StatefulWidget {
+class Destino2Slider extends StatefulWidget {
   @override
-  PlaceSliderState createState() => PlaceSliderState();
+  Destino2SliderState createState() => Destino2SliderState();
 }
 
-class PlaceSliderState extends State<PlaceSlider> {
+class Destino2SliderState extends State<Destino2Slider> {
   final ScrollController scrollController = ScrollController();
 
   @override
+  @override
   Widget build(BuildContext context) {
-    //Argumento para llamar a la Api
-    final placeService = Provider.of<PlaceService>(context);
     return Container(
         width: double.infinity,
-        height: 500,
+        height: 430,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Text(
-                "Novedades",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: placeService.place.length,
-                itemBuilder: (_, int index) => CitySlider(
-                  place: placeService.place[index],
-                ),
+                itemCount: 4,
+                itemBuilder: (_, int index) => CitySlider(),
               ),
             ),
           ],
@@ -48,38 +32,28 @@ class PlaceSliderState extends State<PlaceSlider> {
 }
 
 class CitySlider extends StatelessWidget {
-  final Place place;
-  const CitySlider({Key? key, required this.place}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         width: 300,
-        height: 400,
+        height: 350,
         child: Column(
           children: [
             GestureDetector(
-              onTap: () =>
-                  //Para llevar los argumentos a la siguiente vista
-                  Navigator.pushNamed(context, "Details", arguments: place),
+              onTap: () => Navigator.pushNamed(context, "DetailsDestinos"),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: FadeInImage(
+                borderRadius: BorderRadius.circular(5),
+                child: const FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image: NetworkImage(place.picture),
+                    image: NetworkImage(
+                        "https://pbs.twimg.com/media/DEubcEwVYAAkaM6.jpg"),
                     width: 300,
                     height: 250,
                     fit: BoxFit.cover),
               ),
             ),
             const SizedBox(height: 5),
-            Text(
-              place.ubication,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-            ),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
@@ -89,18 +63,21 @@ class CitySlider extends StatelessWidget {
               child: Column(crossAxisAlignment: CrossAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Text(
-                      place.name,
+                    const Text(
+                      "Barranco",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      place.description,
+                    const Text(
+                      "No ."
+                      " and typesetting industry. Lorem Ipsum has been"
+                      " the industry's standard dummy text ever since "
+                      "the 1500s, when an unknown printer took a galley of ",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
                         height: 1.5,
                       ),
                     ),

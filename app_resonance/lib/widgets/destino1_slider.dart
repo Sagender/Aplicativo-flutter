@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/destino1_model.dart';
+import '../services/places_services.dart';
 
 class Destino1Slider extends StatefulWidget {
   @override
@@ -11,19 +15,30 @@ class Destino1SliderState extends State<Destino1Slider> {
   @override
   @override
   Widget build(BuildContext context) {
+    final placeService = Provider.of<PlaceService>(context);
     return Container(
         width: double.infinity,
-        height: 430,
+        height: 370,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              "Lugares que visitar",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 4,
-                itemBuilder: (_, int index) => CitySlider(),
+                itemCount: placeService.info.length,
+                itemBuilder: (_, int index) => CitySlider(
+                  info: placeService.info[index],
+                ),
               ),
             ),
           ],
@@ -32,28 +47,31 @@ class Destino1SliderState extends State<Destino1Slider> {
 }
 
 class CitySlider extends StatelessWidget {
+  final Info info;
+
+  const CitySlider({Key? key, required this.info}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        width: 300,
-        height: 350,
+        width: 290,
+        height: 340,
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "DetailsDestinos"),
+              onTap: () => Navigator.pushNamed(context, "DetailsDestinos1",
+                  arguments: info),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
-                child: const FadeInImage(
+                child: FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image: NetworkImage(
-                        "https://pbs.twimg.com/media/DEubcEwVYAAkaM6.jpg"),
+                    image: NetworkImage(info.background),
                     width: 300,
                     height: 250,
                     fit: BoxFit.cover),
               ),
             ),
-            const SizedBox(height: 5),
+            //const SizedBox(height: 5),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
@@ -63,23 +81,32 @@ class CitySlider extends StatelessWidget {
               child: Column(crossAxisAlignment: CrossAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    const Text(
-                      "Barranco",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      "No ."
-                      " and typesetting industry. Lorem Ipsum has been"
-                      " the industry's standard dummy text ever since "
-                      "the 1500s, when an unknown printer took a galley of ",
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        fontSize: 14,
-                        height: 1.5,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          info.title,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              color: Colors.red,
+                              size: 15,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text("8"),
+                          ],
+                        )
+                      ],
                     ),
                   ]),
             ),

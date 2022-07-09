@@ -187,7 +187,7 @@ class contenidoDetail extends StatelessWidget {
         children: <Widget>[
           //Tamaño del card
           Container(
-            width: 120,
+            width: 100,
             height: 120,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),

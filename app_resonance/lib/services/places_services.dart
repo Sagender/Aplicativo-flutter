@@ -1,3 +1,4 @@
+import '../models/destino1_model.dart';
 import '../models/galeria_model.dart';
 import '../models/models.dart';
 import 'dart:convert';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import "package:http/http.dart" as http;
 
 import '../models/recomendation_model.dart';
+import '../models/response_model.dart';
 
 class PlaceService extends ChangeNotifier {
   final String _baseUrl = "appresonance-ac9e0-default-rtdb.firebaseio.com";
@@ -17,6 +19,8 @@ class PlaceService extends ChangeNotifier {
   final List<Tarumba> tarumba = [];
   final List<Recomendation> recomendation = [];
   final List<Galeria> galeria = [];
+  final List<Response> response = [];
+  final List<Info> info = [];
 
   bool isLoading = true;
 
@@ -27,6 +31,8 @@ class PlaceService extends ChangeNotifier {
     loadTarumba();
     loadRecomendation();
     loadGaleria();
+    loadResponse();
+    loadInfo();
   }
 
   Future loadPlace() async {
@@ -148,5 +154,44 @@ class PlaceService extends ChangeNotifier {
     this.isLoading = false;
     notifyListeners();
     return this.galeria;
+  }
+
+  //Implementación para los mapas
+  Future loadResponse() async {
+    this.isLoading = true;
+    notifyListeners();
+
+    final url = Uri.https(_baseUrl, "response.json");
+    final resp = await http.get(url);
+
+    final Map<String, dynamic> responseMap = json.decode(resp.body);
+
+    responseMap.forEach((key, value) {
+      final tempResponse = Response.fromMap(value);
+      tempResponse.id = key;
+      this.response.add(tempResponse);
+    });
+    this.isLoading = false;
+    notifyListeners();
+    return this.response;
+  }
+
+  Future loadInfo() async {
+    this.isLoading = true;
+    notifyListeners();
+
+    final url = Uri.https(_baseUrl, "info.json");
+    final resp = await http.get(url);
+
+    final Map<String, dynamic> infoMap = json.decode(resp.body);
+
+    infoMap.forEach((key, value) {
+      final tempInfo = Info.fromMap(value);
+      tempInfo.id = key;
+      this.info.add(tempInfo);
+    });
+    this.isLoading = false;
+    notifyListeners();
+    return this.info;
   }
 }

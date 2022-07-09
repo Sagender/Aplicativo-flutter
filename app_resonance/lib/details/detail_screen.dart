@@ -11,7 +11,10 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // final placeService = Provider.of<PlaceService>(context);
     //Corregir esta parte
+
+    //Recepción de la vista anterior
     final place = ModalRoute.of(context)?.settings.arguments as Place;
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -120,19 +123,6 @@ class _CustomAppBar extends StatelessWidget {
       floating: true,
       pinned: false,
       flexibleSpace: FlexibleSpaceBar(
-        //centerTitle: true,
-        //titlePadding: const EdgeInsets.all(0),
-        //title: Container(
-        //  alignment: Alignment.bottomCenter,
-        //  padding: const EdgeInsets.only(bottom: 20, left: 20, right: 10),
-        //  color: Colors.black12,
-        //  width: double.infinity,
-        //  child: Text(
-        //    place.name,
-        //    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        //    textAlign: TextAlign.center,
-        //  ),
-        //),
         background: FadeInImage(
           placeholder: AssetImage("assets/images/no-image.jpg"),
           image: NetworkImage(place.picture),

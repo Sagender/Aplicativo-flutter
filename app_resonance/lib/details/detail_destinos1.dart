@@ -1,20 +1,20 @@
-import 'package:appcarrusel/models/response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../models/destino1_model.dart';
 import '../widgets/contenido_slider.dart';
 
-class DetailsDestinos extends StatelessWidget {
-  const DetailsDestinos({Key? key}) : super(key: key);
+class DetailsDestinos1 extends StatelessWidget {
+  const DetailsDestinos1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final response = ModalRoute.of(context)?.settings.arguments as Response;
+    final info = ModalRoute.of(context)?.settings.arguments as Info;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           _CustomAppBar(
-            response: response,
+            info: info,
           ),
           SliverList(
             delegate: SliverChildListDelegate([
@@ -23,7 +23,7 @@ class DetailsDestinos extends StatelessWidget {
               ),
               //_PosterAndTitle(),
               _Overview(
-                response: response,
+                info: info,
               ),
 
               const SizedBox(
@@ -50,9 +50,9 @@ class DetailsDestinos extends StatelessWidget {
 }
 
 class _CustomAppBar extends StatelessWidget {
-  final Response response;
+  final Info info;
 
-  const _CustomAppBar({Key? key, required this.response}) : super(key: key);
+  const _CustomAppBar({Key? key, required this.info}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -79,7 +79,7 @@ class _CustomAppBar extends StatelessWidget {
         //),
         background: FadeInImage(
           placeholder: AssetImage("assets/images/no-image.jpg"),
-          image: NetworkImage(response.background),
+          image: NetworkImage(info.background),
           fit: BoxFit.cover,
         ),
       ),
@@ -88,9 +88,9 @@ class _CustomAppBar extends StatelessWidget {
 }
 
 class _Overview extends StatelessWidget {
-  final Response response;
+  final Info info;
 
-  const _Overview({Key? key, required this.response}) : super(key: key);
+  const _Overview({Key? key, required this.info}) : super(key: key);
   //Llamado a la propiedad
 
   @override
@@ -102,11 +102,11 @@ class _Overview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            response.title,
+            info.title,
             style: GoogleFonts.acme(fontSize: 20, color: Colors.black87),
           ),
           Text(
-            response.description,
+            info.desciption,
             textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 14,

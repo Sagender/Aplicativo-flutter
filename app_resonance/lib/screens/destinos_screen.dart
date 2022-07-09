@@ -33,8 +33,21 @@ class DestinoScreen extends StatelessWidget {
           itemCount: 1,
           itemBuilder: (BuildContext context, int index) => Column(
                 children: [
+                  MuseoSlider(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Divider(),
                   DestinoSlider(),
-                  const Divider(),
+                  Divider(),
+                  MuseoSlider(),
+                  Divider(),
+                  Destino1Slider(),
+                  Divider(),
+                  MuseoSlider(),
+                  Divider(),
+                  DestinoSlider(),
+                  Divider(),
                   MuseoSlider(),
                 ],
               )),

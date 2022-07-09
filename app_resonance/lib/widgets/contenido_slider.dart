@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/response_model.dart';
+import '../services/places_services.dart';
 
 class ContenidoDestinoSlider extends StatefulWidget {
   @override
@@ -11,6 +15,7 @@ class ContenidoDestinoSliderState extends State<ContenidoDestinoSlider> {
   @override
   @override
   Widget build(BuildContext context) {
+    final placeService = Provider.of<PlaceService>(context);
     return Container(
         width: double.infinity,
         height: 200,
@@ -21,8 +26,10 @@ class ContenidoDestinoSliderState extends State<ContenidoDestinoSlider> {
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 5,
-                itemBuilder: (_, int index) => CitySlider(),
+                itemCount: placeService.response.length,
+                itemBuilder: (_, int index) => CitySlider(
+                  response: placeService.response[index],
+                ),
               ),
             ),
           ],
@@ -31,6 +38,9 @@ class ContenidoDestinoSliderState extends State<ContenidoDestinoSlider> {
 }
 
 class CitySlider extends StatelessWidget {
+  final Response response;
+
+  const CitySlider({Key? key, required this.response}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,10 +51,9 @@ class CitySlider extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(5),
-              child: const FadeInImage(
+              child: FadeInImage(
                   placeholder: AssetImage("assets/images/no-image.jpg"),
-                  image:
-                      NetworkImage("https://via.placeholder.com/500x300.png"),
+                  image: NetworkImage(response.background),
                   width: 300,
                   height: 200,
                   fit: BoxFit.cover),
