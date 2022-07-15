@@ -1,9 +1,13 @@
 import 'package:appcarrusel/screens/alert_scren.dart';
 import 'package:flutter/material.dart';
 
+import '../models/boleteria.dart';
+
 class CustomCardType1 extends StatelessWidget {
+  final Boletos boletos;
   const CustomCardType1({
     Key? key,
+    required this.boletos,
   }) : super(key: key);
 
   @override
@@ -12,7 +16,7 @@ class CustomCardType1 extends StatelessWidget {
       child: Column(children: [
         const ListTile(
           leading: Icon(Icons.photo_album_outlined, color: Colors.black),
-          title: Text("Entrada - Categoría"),
+          title: Text("Entrada - Adulto"),
           subtitle: Text("Info\n"
               "El costo de la entrada es de S/12.00"),
         ),

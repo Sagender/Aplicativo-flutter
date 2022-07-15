@@ -1,3 +1,5 @@
+import 'package:appcarrusel/models/boleteria.dart';
+
 import '../models/destino1_model.dart';
 import '../models/galeria_model.dart';
 import '../models/models.dart';
@@ -14,6 +16,7 @@ class PlaceService extends ChangeNotifier {
   final String _baseUrl = "appresonance-ac9e0-default-rtdb.firebaseio.com";
 
   final List<Place> place = [];
+
   final List<DoIt> doIt = [];
   final List<EatIt> eatIt = [];
   final List<Tarumba> tarumba = [];
@@ -21,6 +24,7 @@ class PlaceService extends ChangeNotifier {
   final List<Galeria> galeria = [];
   final List<Response> response = [];
   final List<Info> info = [];
+  final List<Boletos> boletos = [];
 
   bool isLoading = true;
 
@@ -33,6 +37,7 @@ class PlaceService extends ChangeNotifier {
     loadGaleria();
     loadResponse();
     loadInfo();
+    loadBoletos();
   }
 
   Future loadPlace() async {
@@ -193,5 +198,24 @@ class PlaceService extends ChangeNotifier {
     this.isLoading = false;
     notifyListeners();
     return this.info;
+  }
+
+  Future loadBoletos() async {
+    this.isLoading = true;
+    notifyListeners();
+
+    final url = Uri.https(_baseUrl, "boleteria.json");
+    final resp = await http.get(url);
+
+    final Map<String, dynamic> boletosMap = json.decode(resp.body);
+
+    boletosMap.forEach((key, value) {
+      final tempBoletos = Boletos.fromMap(value);
+      tempBoletos.id = key;
+      this.boletos.add(tempBoletos);
+    });
+    this.isLoading = false;
+    notifyListeners();
+    return this.boletos;
   }
 }

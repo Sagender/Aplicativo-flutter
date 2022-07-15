@@ -1,33 +1,25 @@
 import 'package:flutter/material.dart';
 
+import '../models/boleteria.dart';
+import '../widgets/custom_card_type_1.dart';
+
 class DetailHistory extends StatelessWidget {
   const DetailHistory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final String place =
-        ModalRoute.of(context)?.settings.arguments.toString() ??
-            "history.place";
+    final boletos = ModalRoute.of(context)?.settings.arguments as Boletos;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          _CustomAppBar(),
+          _CustomAppBar(boletos: boletos),
           SliverList(
             delegate: SliverChildListDelegate([
-              Column(
-                children: [
-                  Title(),
-                  buttonSection(),
-                  customContenido(),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    child: Image(
-                      image: NetworkImage(
-                          "https://upload.wikimedia.org/wikipedia/commons/8/86/Landscape_mountain.jpg"),
-                    ),
-                  ),
-                ],
-              ),
+              Title(boletos: boletos),
+              buttonSection(),
+              Contenido(boletos: boletos),
+              CustomCardType1(boletos: boletos),
+              //SectionImage(boletos: boletos),
             ]),
           ),
         ],
@@ -36,9 +28,29 @@ class DetailHistory extends StatelessWidget {
   }
 }
 
-class customContenido extends StatelessWidget {
-  const customContenido({
+class SectionImage extends StatelessWidget {
+  final Boletos boletos;
+  const SectionImage({
     Key? key,
+    required this.boletos,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      child: Image(
+        image: NetworkImage(boletos.background),
+      ),
+    );
+  }
+}
+
+class Contenido extends StatelessWidget {
+  final Boletos boletos;
+  const Contenido({
+    Key? key,
+    required this.boletos,
   }) : super(key: key);
 
   @override
@@ -46,24 +58,7 @@ class customContenido extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       child: Text(
-        "Magna tempor tempor quis est et nulla eu fugiat commodo nostrud."
-        "Dolore excepteur ipsum incididunt velit fugiat culpa aliqua"
-        "voluptate. Deserunt sunt sunt ex exercitation laboris veniam est."
-        "Magna tempor tempor quis est et nulla eu fugiat commodo nostrud."
-        "Dolore excepteur ipsum incididunt velit fugiat culpa aliqua"
-        "voluptate. Deserunt sunt sunt ex exercitation laboris veniam est."
-        "Magna tempor tempor quis est et nulla eu fugiat commodo nostrud."
-        "Dolore excepteur ipsum incididunt velit fugiat culpa aliqua"
-        "voluptate. Deserunt sunt sunt ex exercitation laboris veniam est."
-        "Magna tempor tempor quis est et nulla eu fugiat commodo nostrud."
-        "Dolore excepteur ipsum incididunt velit fugiat culpa aliqua"
-        "voluptate. Deserunt sunt sunt ex exercitation laboris veniam est."
-        "Magna tempor tempor quis est et nulla eu fugiat commodo nostrud."
-        "Dolore excepteur ipsum incididunt velit fugiat culpa aliqua"
-        "voluptate. Deserunt sunt sunt ex exercitation laboris veniam est."
-        "Magna tempor tempor quis est et nulla eu fugiat commodo nostrud."
-        "Dolore excepteur ipsum incididunt velit fugiat culpa aliqua"
-        "voluptate. Deserunt sunt sunt ex exercitation laboris veniam est.",
+        boletos.description,
         textAlign: TextAlign.justify,
       ),
     );
@@ -71,6 +66,9 @@ class customContenido extends StatelessWidget {
 }
 
 class _CustomAppBar extends StatelessWidget {
+  final Boletos boletos;
+
+  const _CustomAppBar({Key? key, required this.boletos}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -86,16 +84,15 @@ class _CustomAppBar extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 20, left: 20, right: 10),
           color: Colors.black12,
           width: double.infinity,
-          child: const Text(
-            "History place",
+          child: Text(
+            boletos.title,
             style: TextStyle(fontSize: 16),
             textAlign: TextAlign.center,
           ),
         ),
-        background: const FadeInImage(
+        background: FadeInImage(
           placeholder: AssetImage("assets/images/no-image.jpg"),
-          image: NetworkImage(
-              "http://paseosescolares.pe/wp-content/uploads/2015/11/337.jpg"),
+          image: NetworkImage(boletos.image),
           fit: BoxFit.cover,
         ),
       ),
@@ -152,8 +149,10 @@ class customButton extends StatelessWidget {
 }
 
 class Title extends StatelessWidget {
+  final Boletos boletos;
   const Title({
     Key? key,
+    required this.boletos,
   }) : super(key: key);
 
   @override
@@ -166,7 +165,7 @@ class Title extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Barranco , nuevo point",
+              Text(boletos.title,
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
               Text("Lima Perú",
                   style: TextStyle(color: Colors.black, fontSize: 10))

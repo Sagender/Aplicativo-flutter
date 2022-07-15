@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/boleteria.dart';
+import '../services/places_services.dart';
 
 class MuseoSlider extends StatefulWidget {
   @override
@@ -10,6 +14,7 @@ class MuseoSliderState extends State<MuseoSlider> {
 
   @override
   Widget build(BuildContext context) {
+    final placeService = Provider.of<PlaceService>(context);
     return Container(
         //padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
         width: double.infinity,
@@ -18,7 +23,7 @@ class MuseoSliderState extends State<MuseoSlider> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Title del museo",
+              "Entretenimiento",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.black87,
@@ -30,8 +35,9 @@ class MuseoSliderState extends State<MuseoSlider> {
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal, //Dirección del Scroll
-                itemCount: 6,
-                itemBuilder: (_, int index) => CitySlider(),
+                itemCount: placeService.boletos.length,
+                itemBuilder: (_, int index) =>
+                    CitySlider(boletos: placeService.boletos[index]),
               ),
             ),
             buttonOption(),
@@ -41,6 +47,9 @@ class MuseoSliderState extends State<MuseoSlider> {
 }
 
 class CitySlider extends StatelessWidget {
+  final Boletos boletos;
+
+  const CitySlider({Key? key, required this.boletos}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,13 +59,13 @@ class CitySlider extends StatelessWidget {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "History"),
+              onTap: () =>
+                  Navigator.pushNamed(context, "History", arguments: boletos),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
-                child: const FadeInImage(
+                child: FadeInImage(
                     placeholder: AssetImage("assets/images/no-image.jpg"),
-                    image: NetworkImage(
-                        "https://live.staticflickr.com/1941/31582966498_8beca335c3_b.jpg"),
+                    image: NetworkImage(boletos.background),
                     width: 300,
                     height: 200,
                     fit: BoxFit.cover),

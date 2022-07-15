@@ -1,11 +1,7 @@
-import 'package:appcarrusel/widgets/contenido_slider.dart';
 import 'package:appcarrusel/widgets/custom_card_type_1.dart';
-import 'package:appcarrusel/widgets/custom_place_card.dart';
-import 'package:appcarrusel/widgets/product_card2.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/reference_book.dart';
 
 class DetailProduct extends StatelessWidget {
   const DetailProduct({Key? key}) : super(key: key);
@@ -22,19 +18,19 @@ class DetailProduct extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate([
               _Overview(),
-              CustomCardType1(),
+              //CustomCardType1(),
               SizedBox(
                 height: 10,
               ),
-              CustomCardType1(),
+              //CustomCardType1(),
               SizedBox(
                 height: 10,
               ),
-              CustomCardType1(),
+              //CustomCardType1(),
               SizedBox(
                 height: 10,
               ),
-              CustomCardType1(),
+              // CustomCardType1(),
             ]),
           ),
         ],

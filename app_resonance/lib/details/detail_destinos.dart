@@ -2,7 +2,7 @@ import 'package:appcarrusel/models/response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/contenido_slider.dart';
+import '../widgets/contenido_slider1.dart';
 
 class DetailsDestinos extends StatelessWidget {
   const DetailsDestinos({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class DetailsDestinos extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              ContenidoDestinoSlider(),
+              ContenidoDestinoSlider1(),
               const SizedBox(
                 height: 20,
               ),
