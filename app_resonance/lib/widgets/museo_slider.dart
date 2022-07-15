@@ -86,7 +86,7 @@ class buttonOption extends StatelessWidget {
           //onPressed: () => displayDialogAndorid(context)
           onPressed: () => Navigator.pushNamed(context, "Product"),
           child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 9),
               child: Text("Boletería",
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w700))),
@@ -114,7 +114,7 @@ class buttonOption extends StatelessWidget {
           //onPressed: () => displayDialogAndorid(context)
           onPressed: () {},
           child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Text("Ubicación",
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w700))),

@@ -6,6 +6,8 @@ import '../models/recomendation_model.dart';
 import '../services/places_services.dart';
 
 class RecomendationSlider extends StatefulWidget {
+  const RecomendationSlider({Key? key}) : super(key: key);
+
   @override
   RecomendationSliderState createState() => RecomendationSliderState();
 }
@@ -21,7 +23,7 @@ class RecomendationSliderState extends State<RecomendationSlider> {
     return Container(
         padding: EdgeInsets.symmetric(vertical: 0),
         width: double.infinity,
-        height: 500,
+        height: 390,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,7 +67,7 @@ class RecomendationCard extends StatelessWidget {
                             placeholder:
                                 AssetImage("assets/images/no-image.jpg"),
                             image: NetworkImage(recomendation.picture),
-                            width: 200,
+                            width: 180,
                             height: 150,
                             fit: BoxFit.cover),
                       ),
@@ -76,7 +78,9 @@ class RecomendationCard extends StatelessWidget {
                         Text(
                           recomendation.title,
                           style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 15),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                          ),
                         ),
                         SizedBox(
                           height: 20,

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, file_names, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, file_names, sized_box_for_whitespace, camel_case_types
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

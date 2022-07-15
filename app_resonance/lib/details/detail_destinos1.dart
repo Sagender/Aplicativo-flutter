@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../models/destino1_model.dart';
 import '../widgets/contenido_slider.dart';
+import '../widgets/contenido_slider1.dart';
 
 class DetailsDestinos1 extends StatelessWidget {
   const DetailsDestinos1({Key? key}) : super(key: key);
@@ -61,22 +62,6 @@ class _CustomAppBar extends StatelessWidget {
       floating: false,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
-        //centerTitle: true,
-        //titlePadding: const EdgeInsets.all(0),
-        //title: Container(
-        //  alignment: Alignment.bottomCenter,
-        //  padding: const EdgeInsets.only(bottom: 20, left: 20, right: 10),
-        //  color: Colors.black12,
-        //  width: double.infinity,
-        //  child: const Text(
-        //    "Detail_Destinos",
-        //    style: TextStyle(
-        //        fontSize: 20,
-        //        color: Colors.black87,
-        //        fontWeight: FontWeight.bold),
-        //    textAlign: TextAlign.center,
-        //  ),
-        //),
         background: FadeInImage(
           placeholder: AssetImage("assets/images/no-image.jpg"),
           image: NetworkImage(info.background),
